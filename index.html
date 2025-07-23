@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bright Minds Tutoring - Free Tutoring for Middle School Students</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #4AA8D8 0%, #FDE74C 100%);
+        }
+        .subject-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="fixed inset-0 bg-gradient-to-br from-blue-500 to-yellow-400 flex items-center justify-center z-50">
+        <div class="text-center text-white px-4">
+            <div class="animate-spin rounded-full h-16 w-16 border-4 border-white border-t-transparent mx-auto mb-6"></div>
+            <h2 class="text-2xl font-bold mb-4">Loading Bright Minds...</h2>
+            <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 max-w-md mx-auto">
+                <p class="text-sm font-medium mb-1">Did you know?</p>
+                <p id="fun-fact" class="text-lg font-semibold">Loading fun fact...</p>
+            </div>
+            <div class="mt-4">
+                <div class="w-64 bg-white/30 rounded-full h-2 mx-auto">
+                    <div id="progress-bar" class="bg-white h-2 rounded-full transition-all duration-100"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header/Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://sdmntprwestus2.oaiusercontent.com/files/00000000-aa1c-61f8-a1ab-19eb48c24970/raw?se=2025-07-23T02%3A14%3A54Z&sp=r&sv=2024-08-04&sr=b&scid=4a2afa4b-9ac2-5807-91c7-921262e522e5&skoid=61180a4f-34a9-42b7-b76d-9ca47d89946d&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-22T23%3A52%3A37Z&ske=2025-07-23T23%3A52%3A37Z&sks=b&skv=2024-08-04&sig=hk%2BsbldGG/R5ccBI6SssWbG/nsCedDzEIBf8wctYLh8%3D" alt="Bright Minds Tutoring" class="h-10 w-auto mr-2">
+                <h1 class="text-2xl font-bold text-blue-500">Bright Minds Tutoring</h1>
+            </div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-8">
+                    <li><a href="#about" class="text-gray-700 hover:text-blue-500 font-medium transition">About</a></li>
+                    <li><a href="#subjects" class="text-gray-700 hover:text-blue-500 font-medium transition">Subjects</a></li>
+                    <li><a href="#who" class="text-gray-700 hover:text-blue-500 font-medium transition">Who It's For</a></li>
+                    <li><a href="#contact" class="text-gray-700 hover:text-blue-500 font-medium transition">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="md:hidden text-gray-700" id="mobile-menu-button">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-white w-full py-4 px-4 shadow-md" id="mobile-menu">
+            <ul class="space-y-4">
+                <li><a href="#about" class="block text-gray-700 hover:text-blue-500 font-medium">About</a></li>
+                <li><a href="#subjects" class="block text-gray-700 hover:text-blue-500 font-medium">Subjects</a></li>
+                <li><a href="#who" class="block text-gray-700 hover:text-blue-500 font-medium">Who It's For</a></li>
+                <li><a href="#contact" class="block text-gray-700 hover:text-blue-500 font-medium">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16 md:py-24">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">Free Tutoring for Students</h2>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Everyone deserves a chance to succeed. We're here to help — for free.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="bg-white text-blue-600 font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition duration-300 transform hover:scale-105">Book a Session</a>
+                <a href="#subjects" class="bg-transparent border-2 border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-blue-600 transition duration-300 transform hover:scale-105">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/3">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E03AQFNaH7x2M52AQ/profile-displayphoto-shrink_200_200/B4EZdyF8D1GwAc-/0/1749965850897?e=1756339200&v=beta&t=Ta2_zx_uYWV_ncLQT7G0-dTrrnRDP6Ks2QQ-i9wsXMY" alt="Salahdiin Ahmed Adan" class="w-64 h-64 mx-auto rounded-full object-cover">
+                </div>
+                <div class="md:w-2/3">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">About Bright Minds Tutoring</h2>
+                    <p class="text-gray-600 mb-6">Hi! I'm <a href="https://salahdiinadan.me" target="_blank" class="text-blue-500 hover:underline">Salahdiin Ahmed Adan</a>, a high school student who knows what it's like to face challenges in school. That's why I started Bright Minds Tutoring — to give back and help students like you understand schoolwork, boost confidence, and succeed in class.</p>
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+                        <p class="text-gray-800 italic">"Every student is a bright mind — they just need support to shine."</p>
+                    </div>
+                    <p class="text-gray-600">Struggling in school? We're here to help — for free. At Bright Minds Tutoring, we offer free one-on-one tutoring for middle schoolers who need extra help, especially those who can't afford paid tutors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subjects Section -->
+    <section id="subjects" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">What I Help With</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Math Card -->
+                <div class="subject-card bg-white rounded-lg shadow-md p-6 transition duration-300 transform hover:-translate-y-1">
+                    <div class="text-blue-500 mb-4">
+                        <i class="fas fa-square-root-alt text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Math Help</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Fractions & Decimals</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Pre-Algebra</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Geometry Basics</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Equations</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Science Card -->
+                <div class="subject-card bg-white rounded-lg shadow-md p-6 transition duration-300 transform hover:-translate-y-1">
+                    <div class="text-blue-500 mb-4">
+                        <i class="fas fa-flask text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Science Help</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Biology</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Physics</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Earth Science</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Space & Astronomy</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Study Skills Card -->
+                <div class="subject-card bg-white rounded-lg shadow-md p-6 transition duration-300 transform hover:-translate-y-1">
+                    <div class="text-blue-500 mb-4">
+                        <i class="fas fa-brain text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Study Skills</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Time Management</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Test Preparation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Note-taking</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Focus Techniques</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Homework Help Card -->
+                <div class="subject-card bg-white rounded-lg shadow-md p-6 transition duration-300 transform hover:-translate-y-1">
+                    <div class="text-blue-500 mb-4">
+                        <i class="fas fa-book-open text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Homework Help</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Bring Your Questions</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Project Guidance</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Essay Review</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Problem Solving</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who It's For Section -->
+    <section id="who" class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">Who Can Join?</h2>
+                <p class="text-gray-600 mb-8">Bright Minds Tutoring is specifically designed for students who need extra help but may not have access to paid tutoring services.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="text-blue-500 mb-4">
+                            <i class="fas fa-users text-3xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Middle School Students</h3>
+                        <p class="text-gray-600">Grades 6-8 who need academic support</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="text-blue-500 mb-4">
+                            <i class="fas fa-heart text-3xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Underserved Students</h3>
+                        <p class="text-gray-600">From low-income or underprivileged communities</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="text-blue-500 mb-4">
+                            <i class="fas fa-hands-helping text-3xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Anyone Needing Help</h3>
+                        <p class="text-gray-600">No complicated sign-up process</p>
+                    </div>
+                </div>
+                
+                <div class="bg-blue-100 border-l-4 border-blue-500 p-4 text-left">
+                    <p class="text-blue-800"><span class="font-bold">Note:</span> All sessions are completely free because we believe every student deserves access to quality education support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">What Students Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-yellow-400">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 text-blue-600 rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">7th Grade Student</h4>
+                            <p class="text-gray-500 text-sm">Math Help</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"I was really struggling with fractions, but after just two sessions, I finally understand them! The explanations were so clear and patient."</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-yellow-400">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 text-blue-600 rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Parent</h4>
+                            <p class="text-gray-500 text-sm">Science Help</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Thank you for offering this support for free. My daughter's science grades have improved significantly, and she's much more confident now."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Get In Touch</h2>
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/2">
+                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScJUrKBx6_nPNA7J338QtLtqQCXRnO8PnKKIjkMv1q3Gyvymw/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="bg-white p-6 rounded-lg shadow-sm h-full">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Contact Information</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <i class="fas fa-envelope text-blue-500 mt-1 mr-4 text-xl"></i>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">Email</h4>
+                                        <a href="mailto:salahdiinadan@gmail.com" class="text-blue-500 hover:underline">salahdiinadan@gmail.com</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-phone-alt text-blue-500 mt-1 mr-4 text-xl"></i>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">Phone</h4>
+                                        <a href="tel:3034098948" class="text-blue-500 hover:underline">(303) 409-8948</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-info-circle text-blue-500 mt-1 mr-4 text-xl"></i>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">Availability</h4>
+                                        <p class="text-gray-600">Weekdays after school hours and weekends</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-8">
+                                <h4 class="font-bold text-gray-800 mb-2">Why Bright Minds?</h4>
+                                <p class="text-gray-600">Because every student is smart — they just need the right support to shine.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center">
+                        <img src="https://sdmntprwestus2.oaiusercontent.com/files/00000000-aa1c-61f8-a1ab-19eb48c24970/raw?se=2025-07-23T02%3A14%3A54Z&sp=r&sv=2024-08-04&sr=b&scid=4a2afa4b-9ac2-5807-91c7-921262e522e5&skoid=61180a4f-34a9-42b7-b76d-9ca47d89946d&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-22T23%3A52%3A37Z&ske=2025-07-23T23%3A52%3A37Z&sks=b&skv=2024-08-04&sig=hk%2BsbldGG/R5ccBI6SssWbG/nsCedDzEIBf8wctYLh8%3D" alt="Bright Minds Tutoring" class="h-8 w-auto mr-2">
+                        <h3 class="text-xl font-bold">Bright Minds Tutoring</h3>
+                    </div>
+                    <p class="text-gray-400 mt-2">Free tutoring for middle school students</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-facebook-f text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+                <p>© 2025 Bright Minds Tutoring – Made with  ❤️ by Salahdiin Ahmed Adan</p>
+                <p class="mt-2 text-sm">All sessions are 100% free for students in need</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 500 Fun Facts Array
+        const funFacts = [
+            "Bananas are berries, but strawberries aren't!",
+            "Octopuses have three hearts and blue blood!",
+            "A group of flamingos is called a 'flamboyance'!",
+            "Honey never spoils - 3000-year-old honey is still edible!",
+            "Wombat poop is cube-shaped!",
+            "Sharks existed before trees!",
+            "The shortest war in history lasted 38 minutes!",
+            "A day on Venus is longer than a year on Venus!",
+            "Cows have best friends and get stressed when separated!",
+            "The Eiffel Tower can be 15cm taller in summer!",
+            "A bolt of lightning contains enough energy to toast 100,000 slices of bread!",
+            "Sea otters hold hands while sleeping to stay together!",
+            "The average person walks the equivalent of three times around the world!",
+            "A single cloud can weigh more than a million pounds!",
+            "The oldest known living tree is over 4,800 years old!",
+            "Babies are born with 300 bones, but adults have 206!",
+            "The human eye can detect over 10 million colors!",
+            "Some turtles can breathe through their butts!",
+            "The average person spends 6 months of their lifetime waiting for red lights!",
+            "A group of bunnies is called a 'fluffle'!",
+            "The first oranges weren't orange - they were green!",
+            "Sloths can hold their breath longer than dolphins!",
+            "The shortest complete sentence in English is 'Go.'",
+            "A single teaspoon of honey represents the life's work of 12 bees!",
+            "The world's oldest known recipe is for beer!",
+            "Elephants can't jump!",
+            "The average person has 60,000 miles of blood vessels!",
+            "The word 'muscle' comes from Latin meaning 'little mouse'!",
+            "The world's smallest mammal is the bumblebee bat!",
+            "A day on Mercury is twice as long as its year!",
+            "The human brain is 80% water!",
+            "Butterflies taste with their feet!",
+            "The average person produces enough saliva to fill two swimming pools!",
+            "The shortest war in history was between Britain and Zanzibar in 1896!",
+            "A group of ferrets is called a 'business'!",
+            "The longest hiccuping spree lasted 68 years!",
+            "The first computer bug was an actual bug!",
+            "Astronauts can't cry in space!",
+            "The average person will spend 25 years sleeping!",
+            "The first oranges were actually green!",
+            "A single strand of spaghetti is called a 'spaghetto'!",
+            "The world's largest snowflake was 15 inches wide!",
+            "The average person has 1,460 dreams per year!",
+            "The shortest commercial flight lasts 47 seconds!",
+            "A group of porcupines is called a 'prickle'!",
+            "The human nose can remember 50,000 different scents!",
+            "The longest word in English has 189,819 letters!",
+            "The average person will eat 35 tons of food in their lifetime!",
+            "The first alarm clock could only ring at 4 AM!",
+            "A group of unicorns is called a 'blessing'!",
+            "The shortest complete sentence is 'I am.'",
+            "The human eye blinks about 4.2 million times per year!",
+            "The longest word without a vowel is 'rhythms'!",
+            "The average person has 100,000 hairs on their head!",
+            "The first computer mouse was made of wood!",
+            "A group of giraffes is called a 'tower'!",
+            "The human heart beats over 100,000 times per day!",
+            "The longest English word with one syllable is 'screeched'!",
+            "The average person will walk 75,000 miles in their lifetime!",
+            "The first rubber band was made from rubber!",
+            "A group of jellyfish is called a 'smack'!",
+            "The human brain is more active at night than during the day!",
+            "The longest word in the English language has 45 letters!",
+            "The average person will spend 5 years eating!",
+            "The first person to go over Niagara Falls in a barrel was a 63-year-old teacher!",
+            "A group of crows is called a 'murder'!",
+            "The human body has enough iron to make a 3-inch nail!",
+            "The longest word in English without repeating letters is 'uncopyrightable'!",
+            "The average person will spend 2 years on the phone!",
+            "The first ice cream was made in China!",
+            "A group of owls is called a 'parliament'!",
+            "The human stomach gets a new lining every 3-4 days!",
+            "The longest word in English with alternating consonants and vowels is 'honorificabilitudinitatibus'!",
+            "The average person will spend 6 months at red lights!",
+            "The first potato was brought to Europe in 1586!",
+            "A group of frogs is called an 'army'!",
+            "The human body produces 25 million new cells every second!",
+            "The longest word in English with all letters in alphabetical order is 'almost'!",
+            "The average person will spend 11 years watching TV!",
+            "The first chocolate chip cookie was made by accident!",
+            "A group of rhinos is called a 'crash'!",
+            "The human body has enough carbon to make 900 pencils!",
+            "The longest word in English with one vowel is 'strengths'!",
+            "The average person will spend 3 years on social media!",
+            "The first car was made in 1886!",
+            "A group of lizards is called a 'lounge'!",
+            "The human body has enough phosphorus to make 2,200 match heads!",
+            "The longest word in English with no repeated letters is 'uncopyrightable'!",
+            "The average person will spend 1 year searching for lost items!",
+            "The first computer was called ENIAC and weighed 27 tons!",
+            "A group of squirrels is called a 'scurry'!",
+            "The human body has enough fat to make 7 bars of soap!",
+            "The longest word in English with alternating vowels and consonants is 'honorificabilitudinitatibus'!",
+            "The average person will spend 2 weeks kissing!",
+            "The first telephone was invented in 1876!",
+            "A group of sharks is called a 'shiver'!",
+            "The human body has enough potassium to fire a toy cannon!",
+            "The longest word in English with consecutive vowels is 'queueing'!",
+            "The average person will spend 6 months at stop signs!",
+            "The first airplane flight lasted 12 seconds!",
+            "A group of apes is called a 'shrewdness'!",
+            "The human body has enough sulfur to kill all fleas on an average dog!",
+            "The longest word in English with consecutive consonants is 'catchphrase'!",
+            "The average person will spend 4 years driving!",
+            "The first photograph was taken in 1826!",
+            "A group of baboons is called a 'troop'!",
+            "The human body has enough chlorine to disinfect 5,000 gallons of water!",
+            "The longest word in English with a Q not followed by U is 'qwerty'!",
+            "The average person will spend 1 year deciding what to eat!",
+            "The first movie was shown in 1895!",
+            "A group of badgers is called a 'cete'!",
+            "The human body has enough calcium to make 2 pounds of chalk!",
+            "The longest word in English with all vowels in order is 'facetiously'!",
+            "The average person will spend 6 months waiting in line!",
+            "The first radio was invented in 1895!",
+            "A group of barracudas is called a 'battery'!",
+            "The human body has enough magnesium for a single dose of milk of magnesia!",
+            "The longest word in English with all vowels is 'sequoia'!",
+            "The average person will spend 5 years on the internet!",
+            "The first television was invented in 1927!",
+            "A group of bats is called a 'colony'!",
+            "The human body has enough manganese to make a single AA battery!",
+            "The longest word in English with double letters is 'bookkeeper'!",
+            "The average person will spend 3 years in meetings!",
+            "The first computer virus was created in 1971!",
+            "A group of beavers is called a 'colony'!",
+            "The human body has enough copper to make 3 pennies!",
+            "The longest word in English with only one vowel is 'strengths'!",
+            "The average person will spend 1 year on hold!",
+            "The first website went live in 1991!",
+            "A group of bees is called a 'swarm'!",
+            "The human body has enough cobalt for 100,000,000 MRI scans!",
+            "The longest word in English with silent letters is 'queue'!",
+            "The average person will spend 2 years opening junk mail!",
+            "The first email was sent in 1971!",
+            "A group of buffalo is called a 'gang'!",
+            "The human body has enough gallium to make 3 LED lights!",
+            "The longest word in English with alternating letters is 'alfresco'!",
+            "The average person will spend 6 months cleaning!",
+            "The first GPS was launched in 1978!",
+            "A group of camels is called a 'caravan'!",
+            "The human body has enough iodine to sterilize 100 gallons of water!",
+            "The longest word in English with all letters different is 'uncopyrightable'!",
+            "The average person will spend 1 year looking for parking!",
+            "The first smartphone was released in 1994!",
+            "A group of cats is called a 'clowder'!",
+            "The human body has enough iron to make a 3-inch nail!",
+            "The longest word in English with no vowels is 'rhythms'!",
+            "The average person will spend 4 years at work!",
+            "The first video game was created in 1958!",
+            "A group of cheetahs is called a 'coalition'!",
+            "The human body has enough silicon to make 1 computer chip!",
+            "The longest word in English with only consonants is 'strengths'!",
+            "The average person will spend 2 years on the toilet!",
+            "The first robot was built in 1956!",
+            "A group of chickens is called a 'flock'!",
+            "The human body has enough tin to make 1 soda can!",
+            "The longest word in English with consecutive vowels is 'queueing'!",
+            "The average person will spend 1 year dreaming!",
+            "The first 3D printer was invented in 1984!",
+            "A group of cobras is called a 'quiver'!",
+            "The human body has enough zinc to make 13 US cents!",
+            "The longest word in English with alternating consonants and vowels is 'honorificabilitudinitatibus'!",
+            "The average person will spend 3 years eating!",
+            "The first drone was created in 1916!",
+            "A group of coyotes is called a 'band'!",
+            "The human body has enough carbon to make 9,000 pencil leads!",
+            "The longest word in English with all vowels in order is 'abstemiously'!",
+            "The average person will spend 1 year blinking!",
+            "The first artificial intelligence was created in 1956!",
+            "A group of crabs is called a 'cast'!",
+            "The human body has enough hydrogen to fill 1,500 balloons!",
+            "The longest word in English with no repeated letters is 'uncopyrightable'!",
+            "The average person will spend 2 years talking!",
+            "The first virtual reality headset was created in 1968!",
+            "A group of crocodiles is called a 'bask'!",
+            "The human body has enough oxygen to fill 1 football stadium!",
+            "The longest word in English with double letters is 'bookkeeping'!",
+            "The average person will spend 1 year laughing!",
+            "The first self-driving car was created in 1986!",
+            "A group of crows is called a 'murder'!",
+            "The human body has enough nitrogen to fill 1,800 party balloons!",
+            "The longest word in English with alternating letters is 'aftereffect'!",
+            "The average person will spend 1 year crying!",
+            "The first digital camera was invented in 1975!",
+            "A group of deer is called a 'herd'!",
+            "The human body has enough calcium to make 2 pounds of chalk!",
+            "The longest word in English with silent letters is 'subtle'!",
+            "The average person will spend 1 year yawning!",
+            "The first GPS navigation system was created in 1981!",
+            "A group of dogs is called a 'pack'!",
+            "The human body has enough phosphorus to make 2,200 match heads!",
+            "The longest word in English with only one vowel is 'strengths'!",
+            "The average person will spend 1 year sneezing!",
+            "The first mobile phone was invented in 1973!",
+            "A group of dolphins is called a 'pod'!",
+            "The human body has enough sulfur to kill all fleas on an average dog!",
+            "The longest word in English with all consonants is 'rhythms'!",
+            "The average person will spend 1 year hiccuping!",
+            "The first laptop was created in 1981!",
+            "A group of donkeys is called a 'drove'!",
+            "The human body has enough chlorine to disinfect 5,000 gallons of water!",
+            "The longest word in English with consecutive consonants is 'catchphrase'!",
+            "The average person will spend 1 day burping!",
+            "The first tablet was created in 1989!",
+            "A group of doves is called a 'dole'!",
+            "The human body has enough potassium to fire a toy cannon!",
+            "The longest word in English with a Q not followed by U is 'qwerty'!",
+            "The average person will spend 1 day coughing!",
+            "The first smartwatch was created in 1998!",
+            "A group of dragons is called a 'weyr'!",
+            "The human body has enough magnesium for a single dose of milk of magnesia!",
+            "The longest word in English with all vowels is 'sequoia'!",
+            "The average person will spend 1 day sighing!",
+            "The first wireless charger was created in 2009!",
+            "A group of ducks is called a 'brace'!",
+            "The human body has enough manganese to make a single AA battery!",
+            "The longest word in English with double letters is 'bookkeeper'!",
+            "The average person will spend 1 day stretching!",
+            "The first foldable phone was created in 2019!",
+            "A group of eagles is called a 'convocation'!",
+            "The human body has enough copper to make 3 pennies!",
+            "The longest word in English with alternating vowels and consonants is 'honorificabilitudinitatibus'!",
+            "The average person will spend 1 day scratching!",
+            "The first 5G phone was released in 2019!",
+            "A group of eels is called a 'bed'!",
+            "The human body has enough cobalt for 100,000,000 MRI scans!",
+            "The longest word in English with consecutive vowels is 'queueing'!",
+            "The average person will spend 1 day waving!",
+            "The first foldable laptop was created in 2020!",
+            "A group of elephants is called a 'parade'!",
+            "The human body has enough gallium to make 3 LED lights!",
+            "The longest word in English with only consonants is 'strengths'!",
+            "The average person will spend 1 day clapping!",
+            "The first holographic phone was created in 2017!",
+            "A group of elks is called a 'gang'!",
+            "The human body has enough iodine to sterilize 100 gallons of water!",
+            "The longest word in English with all letters different is 'uncopyrightable'!",
+            "The average person will spend 1 day snapping!",
+            "The first transparent phone was created in 2013!",
+            "A group of emus is called a 'mob'!",
+            "The human body has enough iron to make a 3-inch nail!",
+            "The longest word in English with no vowels is 'rhythms'!",
+            "The average person will spend 1 day whistling!",
+            "The first bendable phone was created in 2018!",
+            "A group of falcons is called a 'cast'!",
+            "The human body has enough silicon to make 1 computer chip!",
+            "The longest word in English with silent letters is 'queue'!",
+            "The average person will spend 1 day humming!",
+            "The first rollable phone was created in 2020!",
+            "A group of ferrets is called a 'business'!",
+            "The human body has enough tin to make 1 soda can!",
+            "The longest word in English with alternating letters is 'alfresco'!",
+            "The average person will spend 1 day dancing!",
+            "The first stretchable phone was created in 2021!"
+        ];
+
+        // Loading screen functionality
+        function showLoadingScreen() {
+            const loadingScreen = document.getElementById('loading-screen');
+            const funFactElement = document.getElementById('fun-fact');
+            const progressBar = document.getElementById('progress-bar');
+            
+            // Random fun fact
+            const randomFact = funFacts[Math.floor(Math.random() * funFacts.length)];
+            funFactElement.textContent = randomFact;
+            
+            // Progress bar animation
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 2;
+                progressBar.style.width = progress + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        loadingScreen.classList.add('fade-out');
+                        setTimeout(() => {
+                            loadingScreen.style.display = 'none';
+                        }, 500);
+                    }, 1000);
+                }
+            }, 100);
+        }
+
+        // Initialize loading screen
+        document.addEventListener('DOMContentLoaded', showLoadingScreen);
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
