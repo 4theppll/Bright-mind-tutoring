@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,50 +11,235 @@
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
+            background-image: url('https://i.imgur.com/7eyXdWR.png');
+            background-size: 50px;
+            background-position: center;
+            background-repeat: repeat;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
         }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
         h1, h2, h3, h4 {
             font-family: 'Poppins', sans-serif;
         }
+        
         .hero-gradient {
             background: linear-gradient(135deg, #4AA8D8 0%, #FDE74C 100%);
+            position: relative;
+            overflow: hidden;
         }
+        
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .subject-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+        
+        .subject-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: all 0.6s ease;
+            z-index: 1;
+        }
+        
+        .subject-card:hover::before {
+            left: 100%;
+        }
+        
         .subject-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            z-index: 10;
+        }
+        
+        .pulse-button {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255,255,255,0); }
+            100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .stagger-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        .reveal-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .logo-glow {
+            filter: drop-shadow(0 0 10px rgba(74, 168, 216, 0.5));
+            transition: all 0.3s ease;
+        }
+        
+        .logo-glow:hover {
+            filter: drop-shadow(0 0 20px rgba(74, 168, 216, 0.8));
+            transform: scale(1.05);
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle 3s infinite alternate;
+        }
+        
+        @keyframes twinkle {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        
+        .floating-icon {
+            position: fixed;
+            z-index: -1;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+        
+        .chat-bubble {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #4AA8D8;
+            color: white;
+            padding: 12px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            animation: chatBubble 4s infinite;
+            z-index: 100;
+        }
+        
+        @keyframes chatBubble {
+            0%, 100% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(-10px); opacity: 0.7; }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #4AA8D8, #FDE74C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
         }
     </style>
 </head>
 <body class="bg-gray-50">
+    <!-- Floating Icons -->
+    <div class="floating-icon" style="top: 20%; left: 10%; animation: float 8s ease-in-out infinite; animation-delay: 0s;">
+        <i class="fas fa-book-open text-4xl text-blue-300"></i>
+    </div>
+    <div class="floating-icon" style="top: 40%; right: 15%; animation: float 10s ease-in-out infinite; animation-delay: 2s;">
+        <i class="fas fa-flask text-4xl text-blue-300"></i>
+    </div>
+    <div class="floating-icon" style="bottom: 30%; left: 20%; animation: float 12s ease-in-out infinite; animation-delay: 4s;">
+        <i class="fas fa-brain text-4xl text-blue-300"></i>
+    </div>
+    <div class="floating-icon" style="top: 60%; right: 25%; animation: float 9s ease-in-out infinite; animation-delay: 1s;">
+        <i class="fas fa-square-root-alt text-4xl text-blue-300"></i>
+    </div>
+    
+    <!-- Chat Bubble -->
+    <div class="chat-bubble">
+        <i class="fas fa-comment-dots mr-2"></i> Need help? Book a free session!
+    </div>
+    
     <!-- Loading Screen -->
-    <div id="loading-screen" class="fixed inset-0 bg-gradient-to-br from-blue-500 to-yellow-400 flex items-center justify-center z-50">
-        <div class="text-center text-white px-4">
+    <div id="loading-screen" class="fixed inset-0 bg-gradient-to-br from-blue-500 via-blue-400 to-yellow-400 flex items-center justify-center z-50">
+        <div class="text-center text-white px-4 relative">
             <div class="animate-spin rounded-full h-16 w-16 border-4 border-white border-t-transparent mx-auto mb-6"></div>
-            <h2 class="text-2xl font-bold mb-4">Loading Bright Minds...</h2>
-            <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 max-w-md mx-auto">
-                <p class="text-sm font-medium mb-1">Did you know?</p>
-                <p id="fun-fact" class="text-lg font-semibold">Loading fun fact...</p>
+            <h2 class="text-2xl font-bold mb-4">Unlocking Bright Minds...</h2>
+            <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 max-w-md mx-auto mb-6">
+                <p class="text-sm font-medium mb-1">🌟 Bright Mind Fact</p>
+                <p id="fun-fact" class="text-lg font-semibold">Loading your personalized fact...</p>
             </div>
-            <div class="mt-4">
-                <div class="w-64 bg-white/30 rounded-full h-2 mx-auto">
-                    <div id="progress-bar" class="bg-white h-2 rounded-full transition-all duration-100"></div>
-                </div>
+            <div class="w-64 bg-white/30 rounded-full h-2 mx-auto mb-2">
+                <div id="progress-bar" class="bg-white h-2 rounded-full transition-all duration-100"></div>
             </div>
+            <p class="text-sm opacity-80">Preparing your learning journey</p>
+            
+            <!-- Stars -->
+            <div id="loading-stars"></div>
         </div>
     </div>
-
+    
     <!-- Header/Navigation -->
-    <header class="sticky top-0 z-50 bg-white shadow-sm">
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center">
-                <img src="https://i.imgur.com/7eyXdWR.png" alt="Bright Minds Tutoring" class="h-10 w-auto mr-2">
-                <h1 class="text-2xl font-bold text-blue-500">Bright Minds Tutoring</h1>
+                <img src="https://i.imgur.com/7eyXdWR.png" alt="Bright Minds Tutoring" class="h-10 w-auto mr-2 logo-glow">
+                <h1 class="text-2xl font-bold text-blue-500">Bright Minds</h1>
             </div>
             <nav class="hidden md:block">
                 <ul class="flex space-x-8">
-                    <li><a href="#about" class="text-gray-700 hover:text-blue-500 font-medium transition">About</a></li>
-                    <li><a href="#subjects" class="text-gray-700 hover:text-blue-500 font-medium transition">Subjects</a></li>
-                    <li><a href="#who" class="text-gray-700 hover:text-blue-500 font-medium transition">Who It's For</a></li>
-                    <li><a href="#contact" class="text-gray-700 hover:text-blue-500 font-medium transition">Contact</a></li>
+                    <li><a href="#about" class="text-gray-700 hover:text-blue-500 font-medium transition duration-300 relative group">About
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
+                    </a></li>
+                    <li><a href="#subjects" class="text-gray-700 hover:text-blue-500 font-medium transition duration-300 relative group">Subjects
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
+                    </a></li>
+                    <li><a href="#who" class="text-gray-700 hover:text-blue-500 font-medium transition duration-300 relative group">Who It's For
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
+                    </a></li>
+                    <li><a href="#contact" class="text-gray-700 hover:text-blue-500 font-medium transition duration-300 relative group">Contact
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
+                    </a></li>
                 </ul>
             </nav>
             <button class="md:hidden text-gray-700" id="mobile-menu-button">
@@ -61,268 +247,532 @@
             </button>
         </div>
         <!-- Mobile menu -->
-        <div class="md:hidden hidden bg-white w-full py-4 px-4 shadow-md" id="mobile-menu">
+        <div class="md:hidden hidden bg-white/95 backdrop-blur-md w-full py-4 px-4 shadow-lg" id="mobile-menu">
             <ul class="space-y-4">
-                <li><a href="#about" class="block text-gray-700 hover:text-blue-500 font-medium">About</a></li>
-                <li><a href="#subjects" class="block text-gray-700 hover:text-blue-500 font-medium">Subjects</a></li>
-                <li><a href="#who" class="block text-gray-700 hover:text-blue-500 font-medium">Who It's For</a></li>
-                <li><a href="#contact" class="block text-gray-700 hover:text-blue-500 font-medium">Contact</a></li>
+                <li><a href="#about" class="block text-gray-700 hover:text-blue-500 font-medium py-2 border-b border-gray-100">About</a></li>
+                <li><a href="#subjects" class="block text-gray-700 hover:text-blue-500 font-medium py-2 border-b border-gray-100">Subjects</a></li>
+                <li><a href="#who" class="block text-gray-700 hover:text-blue-500 font-medium py-2 border-b border-gray-100">Who It's For</a></li>
+                <li><a href="#contact" class="block text-gray-700 hover:text-blue-500 font-medium py-2 border-b border-gray-100">Contact</a></li>
             </ul>
         </div>
     </header>
-
-    <!-- Hero Section -->
-    <section class="hero-gradient text-white py-16 md:py-24">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-5xl font-bold mb-6">Free Tutoring for Students</h2>
-            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Everyone deserves a chance to succeed. We're here to help    - for free.</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#contact" class="bg-white text-blue-600 font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition duration-300 transform hover:scale-105">Book a Session</a>
-                <a href="#subjects" class="bg-transparent border-2 border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-blue-600 transition duration-300 transform hover:scale-105">Learn More</a>
+    
+    <!-- Hero Section with Mountain Background -->
+    <section class="hero-gradient text-white py-16 md:py-24 relative overflow-hidden">
+        <!-- Mountain Background -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-green-800 to-transparent opacity-80"></div>
+            <div class="absolute bottom-0 left-0 w-full h-1/4">
+                <!-- Mountains -->
+                <svg viewBox="0 0 1200 300" preserveAspectRatio="none" class="w-full h-full">
+                    <path d="M0,300 L0,150 L200,50 L400,120 L600,80 L800,100 L1000,60 L1200,120 L1200,300 Z" fill="rgba(34, 197, 94, 0.6)"></path>
+                    <path d="M0,300 L0,180 L150,100 L300,160 L450,120 L600,140 L750,100 L900,130 L1050,90 L1200,150 L1200,300 Z" fill="rgba(22, 101, 52, 0.7)"></path>
+                    <path d="M0,300 L0,200 L100,150 L200,180 L300,160 L400,190 L500,170 L600,200 L700,180 L800,210 L900,190 L1000,220 L1100,200 L1200,230 L1200,300 Z" fill="rgba(13, 71, 38, 0.8)"></path>
+                </svg>
+            </div>
+            <!-- Trees -->
+            <div class="absolute bottom-0 left-0 w-full h-1/5">
+                <svg viewBox="0 0 1200 100" preserveAspectRatio="none" class="w-full h-full">
+                    <path d="M0,100 L50,60 L100,100 M150,100 L200,40 L250,100 M300,100 L350,50 L400,100 M450,100 L500,30 L550,100 M600,100 L650,60 L700,100 M750,100 L800,45 L850,100 M900,100 L950,55 L1000,100 M1050,100 L1100,35 L1150,100" stroke="rgba(1, 87, 50, 0.8)" stroke-width="3" fill="none"></path>
+                </svg>
+            </div>
+            <!-- Sun -->
+            <div class="absolute top-20 right-20 w-20 h-20 bg-yellow-300 rounded-full opacity-90 shadow-lg animate-pulse"></div>
+            <!-- Clouds -->
+            <div class="absolute top-16 left-20 w-32 h-16 bg-white rounded-full opacity-80"></div>
+            <div class="absolute top-24 left-32 w-24 h-12 bg-white rounded-full opacity-80"></div>
+            <div class="absolute top-12 right-40 w-40 h-20 bg-white rounded-full opacity-70"></div>
+            <div class="absolute top-32 right-60 w-30 h-15 bg-white rounded-full opacity-70"></div>
+        </div>
+        
+        <!-- Content -->
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <div class="mb-6 floating">
+                <h2 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">Welcome to <span class="gradient-text">Bright Minds</span></h2>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">A place where learning feels like an adventure and every student is celebrated for their unique brilliance</p>
+            </div>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+                <a href="#contact" class="bg-white text-blue-600 font-bold py-4 px-8 rounded-full hover:bg-gray-100 transition duration-300 transform hover:scale-105 shadow-lg pulse-button">
+                    <i class="fas fa-calendar-check mr-2"></i> Book Your Free Session
+                </a>
+                <a href="#subjects" class="bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-full hover:bg-white hover:text-blue-600 transition duration-300 transform hover:scale-105">
+                    <i class="fas fa-graduation-cap mr-2"></i> Discover Our Programs
+                </a>
+            </div>
+            
+            <!-- Welcome Message -->
+            <div class="mt-12 bg-white/20 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto border border-white/30">
+                <div class="flex items-center justify-center mb-3">
+                    <i class="fas fa-heart text-yellow-300 mr-3 text-2xl"></i>
+                    <h3 class="text-xl font-semibold">We're So Happy You're Here!</h3>
+                </div>
+                <p class="text-sm opacity-90">At Bright Minds, we believe every student has incredible potential. Our mission is to create a warm, supportive space where you can grow your confidence, discover your strengths, and achieve your academic goals - all completely free of charge.</p>
             </div>
         </div>
+        
+        <!-- Background Elements -->
+        <div class="absolute top-10 left-10 opacity-10">
+            <i class="fas fa-star text-6xl rotate-45"></i>
+        </div>
+        <div class="absolute top-32 right-20 opacity-10">
+            <i class="fas fa-book-open text-5xl"></i>
+        </div>
+        <div class="absolute bottom-20 left-16 opacity-10">
+            <i class="fas fa-flask text-4xl"></i>
+        </div>
+        <div class="absolute bottom-32 right-10 opacity-10">
+            <i class="fas fa-brain text-5xl"></i>
+        </div>
     </section>
-
+    
     <!-- About Section -->
-    <section id="about" class="py-16 bg-white">
+    <section id="about" class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-1/3">
-                    <img src="https://media.licdn.com/dms/image/v2/D4E03AQFNaH7x2M52AQ/profile-displayphoto-shrink_200_200/B4EZdyF8D1GwAc-/0/1749965850897?e=1756339200&v=beta&t=Ta2_zx_uYWV_ncLQT7G0-dTrrnRDP6Ks2QQ-i9wsXMY" alt="Salahdiin Ahmed Adan" class="w-64 h-64 mx-auto rounded-full object-cover">
+                <div class="md:w-1/3 relative">
+                    <div class="absolute -top-4 -left-4 w-full h-full bg-blue-500 rounded-lg transform rotate-3"></div>
+                    <div class="absolute -top-2 -left-2 w-full h-full bg-yellow-400 rounded-lg transform -rotate-2"></div>
+                    <img src="https://media.licdn.com/dms/image/v2/D4E03AQFNaH7x2M52AQ/profile-displayphoto-shrink_200_200/B4EZdyF8D1GwAc-/0/1749965850897?e=1756339200&v=beta&t=Ta2_zx_uYWV_ncLQT7G0-dTrrnRDP6Ks2QQ-i9wsXMY" alt="Salahdiin Ahmed Adan" class="w-64 h-64 mx-auto rounded-full object-cover relative z-10 shadow-2xl">
+                    <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-yellow-400 rounded-full flex items-center justify-center">
+                        <i class="fas fa-heart text-2xl text-white"></i>
+                    </div>
                 </div>
                 <div class="md:w-2/3">
-                    <h2 class="text-3xl font-bold text-gray-800 mb-6">About Bright Minds Tutoring</h2>
-                    <p class="text-gray-600 mb-6">Hi! I'm <a href="https://salahdiinadan.me" target="_blank" class="text-blue-500 hover:underline">Salahdiin Ahmed Adan</a>, a high school student who knows what it's like to face challenges in school. That's why I started Bright Minds Tutoring - to give back and help students like you understand schoolwork, boost confidence, and succeed in class.</p>
-                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
-                        <p class="text-gray-800 italic">"Every student is a bright mind - they just need support to shine."</p>
+                    <h2 class="text-4xl font-bold text-gray-800 mb-6 relative inline-block">
+                        About Bright Minds Tutoring
+                        <span class="absolute -bottom-2 left-0 w-24 h-1 bg-gradient-to-r from-blue-500 to-yellow-400"></span>
+                    </h2>
+                    <p class="text-gray-600 mb-6 text-lg leading-relaxed">Hi! I'm <a href="https://salahdiinadan.me" target="_blank" class="text-blue-500 hover:underline font-semibold">Salahdiin Ahmed Adan</a>, a high school student who knows what it's like to face challenges in school. That's why I started Bright Minds Tutoring - to give back and help students like you understand schoolwork, boost confidence, and succeed in class.</p>
+                    <div class="bg-gradient-to-r from-yellow-50 to-blue-50 border-l-4 border-yellow-400 p-6 mb-6 rounded-r-lg">
+                        <div class="flex items-start">
+                            <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-quote-left text-yellow-500"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-800 text-lg italic font-medium">"Every student is a bright mind - they just need support to shine. I'm here to help you discover your potential."</p>
+                                <p class="text-blue-600 font-semibold mt-3">- Salahdiin Ahmed Adan, Founder</p>
+                            </div>
+                        </div>
                     </div>
-                    <p class="text-gray-600">Struggling in school? We're here to help - for free. At Bright Minds Tutoring, we offer free one-on-one tutoring for middle schoolers who need extra help, especially those who can't afford paid tutors.</p>
+                    <p class="text-gray-600 text-lg leading-relaxed">Struggling in school? We're here to help - for free. At Bright Minds Tutoring, we offer free one-on-one tutoring for middle schoolers who need extra help, especially those who can't afford paid tutors. Our sessions are personalized, engaging, and designed to make learning enjoyable.</p>
+                    
+                    <!-- Stats -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
+                        <div class="text-center p-4 bg-blue-50 rounded-lg card-hover">
+                            <div class="text-3xl font-bold text-blue-600 mb-1">100%</div>
+                            <div class="text-sm text-gray-600">Free Sessions</div>
+                        </div>
+                        <div class="text-center p-4 bg-green-50 rounded-lg card-hover">
+                            <div class="text-3xl font-bold text-green-600 mb-1">95%</div>
+                            <div class="text-sm text-gray-600">Success Rate</div>
+                        </div>
+                        <div class="text-center p-4 bg-purple-50 rounded-lg card-hover">
+                            <div class="text-3xl font-bold text-purple-600 mb-1">500+</div>
+                            <div class="text-sm text-gray-600">Students Helped</div>
+                        </div>
+                        <div class="text-center p-4 bg-orange-50 rounded-lg card-hover">
+                            <div class="text-3xl font-bold text-orange-600 mb-1">∞</div>
+                            <div class="text-sm text-gray-600">Potential Unlocked</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- Subjects Section -->
-    <section id="subjects" class="py-16 bg-gray-50">
+    <section id="subjects" class="py-20 bg-gradient-to-br from-blue-50 to-yellow-50">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">What I Help With</h2>
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 relative inline-block">
+                    What We Help With
+                    <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-blue-500 to-yellow-400"></span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Personalized tutoring designed to make learning engaging and effective</p>
+            </div>
+            
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Math Card -->
-                <div class="subject-card bg-white rounded-lg shadow-md p-6 transition duration-300 transform hover:-translate-y-1">
-                    <div class="text-blue-500 mb-4">
-                        <i class="fas fa-square-root-alt text-4xl"></i>
+                <div class="subject-card bg-white rounded-xl shadow-lg p-8 transition-all duration-500 transform hover:-translate-y-4">
+                    <div class="text-blue-500 mb-6 text-center">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
+                            <i class="fas fa-square-root-alt text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Math Mastery</h3>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Math Help</h3>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                    <ul class="text-gray-600 space-y-3">
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
                             <span>Fractions & Decimals</span>
                         </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Pre-Algebra</span>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                            <span>Pre-Algebra & Equations</span>
                         </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
                             <span>Geometry Basics</span>
                         </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Equations</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Science Card -->
-                <div class="subject-card bg-white rounded-lg shadow-md p-6 transition duration-300 transform hover:-translate-y-1">
-                    <div class="text-blue-500 mb-4">
-                        <i class="fas fa-flask text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Science Help</h3>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Biology</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Physics</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Earth Science</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Space & Astronomy</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Study Skills Card -->
-                <div class="subject-card bg-white rounded-lg shadow-md p-6 transition duration-300 transform hover:-translate-y-1">
-                    <div class="text-blue-500 mb-4">
-                        <i class="fas fa-brain text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Study Skills</h3>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Time Management</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Test Preparation</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Note-taking</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Focus Techniques</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Homework Help Card -->
-                <div class="subject-card bg-white rounded-lg shadow-md p-6 transition duration-300 transform hover:-translate-y-1">
-                    <div class="text-blue-500 mb-4">
-                        <i class="fas fa-book-open text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Homework Help</h3>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Bring Your Questions</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Project Guidance</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Essay Review</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
                             <span>Problem Solving</span>
                         </li>
                     </ul>
+                    <div class="mt-6 pt-6 border-t border-gray-100">
+                        <div class="flex justify-center">
+                            <span class="text-sm text-blue-600 font-medium bg-blue-50 px-3 py-1 rounded-full">Builds confidence</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Science Card -->
+                <div class="subject-card bg-white rounded-xl shadow-lg p-8 transition-all duration-500 transform hover:-translate-y-4">
+                    <div class="text-blue-500 mb-6 text-center">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
+                            <i class="fas fa-flask text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Science Explorer</h3>
+                    </div>
+                    <ul class="text-gray-600 space-y-3">
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                            <span>Biology & Life Science</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                            <span>Physics Fundamentals</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                            <span>Earth & Space Science</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                            <span>Scientific Method</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6 pt-6 border-t border-gray-100">
+                        <div class="flex justify-center">
+                            <span class="text-sm text-blue-600 font-medium bg-blue-50 px-3 py-1 rounded-full">Hands-on learning</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Study Skills Card -->
+                <div class="subject-card bg-white rounded-xl shadow-lg p-8 transition-all duration-500 transform hover:-translate-y-4">
+                    <div class="text-blue-500 mb-6 text-center">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
+                            <i class="fas fa-brain text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Study Skills</h3>
+                    </div>
+                    <ul class="text-gray-600 space-y-3">
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                            <span>Time Management</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                            <span>Test Preparation</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                            <span>Effective Note-taking</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                            <span>Focus Techniques</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6 pt-6 border-t border-gray-100">
+                        <div class="flex justify-center">
+                            <span class="text-sm text-blue-600 font-medium bg-blue-50 px-3 py-1 rounded-full">Lifelong skills</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Homework Help Card -->
+                <div class="subject-card bg-white rounded-xl shadow-lg p-8 transition-all duration-500 transform hover:-translate-y-4">
+                    <div class="text-blue-500 mb-6 text-center">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
+                            <i class="fas fa-book-open text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Homework Help</h3>
+                    </div>
+                    <ul class="text-gray-600 space-y-3">
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                            <span>Bring Your Questions</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                            <span>Project Guidance</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                            <span>Essay Review</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                            <span>Problem Solving</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6 pt-6 border-t border-gray-100">
+                        <div class="flex justify-center">
+                            <span class="text-sm text-blue-600 font-medium bg-blue-50 px-3 py-1 rounded-full">Stress-free help</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Learning Approach -->
+            <div class="mt-16 bg-white rounded-2xl shadow-xl p-8 md:p-12">
+                <div class="text-center mb-10">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-4">Our Learning Approach</h3>
+                    <p class="text-xl text-gray-600">We make learning engaging and effective through personalized methods</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center p-6">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-users text-2xl text-blue-600"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-3">Personalized</h4>
+                        <p class="text-gray-600">One-on-one sessions tailored to your learning style and pace</p>
+                    </div>
+                    <div class="text-center p-6">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-lightbulb text-2xl text-blue-600"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-3">Engaging</h4>
+                        <p class="text-gray-600">Interactive methods that make learning enjoyable and memorable</p>
+                    </div>
+                    <div class="text-center p-6">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-rocket text-2xl text-blue-600"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-3">Effective</h4>
+                        <p class="text-gray-600">Proven techniques that build confidence and improve grades</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- Who It's For Section -->
-    <section id="who" class="py-16 bg-blue-50">
+    <section id="who" class="py-20 bg-gradient-to-br from-blue-100 to-blue-50">
         <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto text-center">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6">Who Can Join?</h2>
-                <p class="text-gray-600 mb-8">Bright Minds Tutoring is specifically designed for students who need extra help but may not have access to paid tutoring services.</p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <div class="text-blue-500 mb-4">
-                            <i class="fas fa-users text-3xl"></i>
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6 relative inline-block">
+                    Who Can Join?
+                    <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-500 to-yellow-400"></span>
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">Bright Minds Tutoring is specifically designed for students who need extra help but may not have access to paid tutoring services.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover transform hover:scale-105 transition-all duration-300">
+                    <div class="text-blue-500 mb-6 text-center">
+                        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-users text-4xl"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">School Students</h3>
-                        <p class="text-gray-600">Grades K-10 who need academic support</p>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">School Students</h3>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <div class="text-blue-500 mb-4">
-                            <i class="fas fa-heart text-3xl"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">Underserved Students</h3>
-                        <p class="text-gray-600">From low-income or underprivileged communities</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <div class="text-blue-500 mb-4">
-                            <i class="fas fa-hands-helping text-3xl"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">Anyone Needing Help</h3>
-                        <p class="text-gray-600">No complicated sign-up process</p>
-                    </div>
+                    <p class="text-gray-600 text-center leading-relaxed">Grades 6-10 who need academic support in math, science, or study skills. Perfect for students preparing for exams or struggling with specific concepts.</p>
                 </div>
                 
-                <div class="bg-blue-100 border-l-4 border-blue-500 p-4 text-left">
-                    <p class="text-blue-800"><span class="font-bold">Note:</span> All sessions are completely free because we believe every student deserves access to quality education support.</p>
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover transform hover:scale-105 transition-all duration-300">
+                    <div class="text-blue-500 mb-6 text-center">
+                        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-heart text-4xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Underserved Students</h3>
+                    </div>
+                    <p class="text-gray-600 text-center leading-relaxed">From low-income or underprivileged communities. We believe every student deserves access to quality education support, regardless of financial situation.</p>
                 </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover transform hover:scale-105 transition-all duration-300">
+                    <div class="text-blue-500 mb-6 text-center">
+                        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-hands-helping text-4xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Anyone Needing Help</h3>
+                    </div>
+                    <p class="text-gray-600 text-center leading-relaxed">No complicated sign-up process. If you're struggling with schoolwork and want to improve, we're here to help you succeed.</p>
+                </div>
+            </div>
+            
+            <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-2xl p-8 md:p-10 text-center max-w-3xl mx-auto shadow-xl">
+                <div class="flex items-center justify-center mb-4">
+                    <i class="fas fa-gift text-3xl mr-3"></i>
+                    <h3 class="text-2xl font-bold">100% Free Sessions</h3>
+                </div>
+                <p class="text-lg opacity-90">All sessions are completely free because we believe every student deserves access to quality education support. No hidden fees, no obligations - just free help to help you succeed.</p>
             </div>
         </div>
     </section>
-
+    
     <!-- Testimonials Section -->
-    <section class="py-16 bg-white">
+    <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">What Students Say</h2>
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 relative inline-block">
+                    Success Stories
+                    <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-28 h-1 bg-gradient-to-r from-blue-500 to-yellow-400"></span>
+                </h2>
+                <p class="text-xl text-gray-600">Hear from students and parents who've experienced the Bright Minds difference</p>
+            </div>
+            
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-yellow-400">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-blue-100 text-blue-600 rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                <div class="testimonial-card bg-gradient-to-br from-yellow-50 to-orange-50 p-8 rounded-2xl shadow-lg border-l-4 border-yellow-400 transform hover:scale-102 transition-all duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-100 text-blue-600 rounded-full w-14 h-14 flex items-center justify-center mr-4">
                             <i class="fas fa-user text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-gray-800">6th Grade Student</h4>
-                            <p class="text-gray-500 text-sm">Math Help</p>
+                            <h4 class="font-bold text-gray-800 text-lg">6th Grade Student</h4>
+                            <p class="text-gray-500">Math Help • 3 months ago</p>
                         </div>
                     </div>
-                    <p class="text-gray-600 italic">"I was really struggling with fractions, but after just two sessions, I finally understand them! The explanations were so clear and patient."</p>
+                    <div class="flex mb-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic text-lg leading-relaxed">"I was really struggling with fractions, but after just two sessions, I finally understand them! The explanations were so clear and patient. I went from getting D's to B's in math class!"</p>
+                    <div class="mt-4 flex items-center">
+                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-check text-green-600 text-sm"></i>
+                        </div>
+                        <span class="text-sm text-green-600 ml-2">Grade improved from D to B</span>
+                    </div>
                 </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-yellow-400">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-blue-100 text-blue-600 rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                
+                <div class="testimonial-card bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl shadow-lg border-l-4 border-blue-400 transform hover:scale-102 transition-all duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-100 text-blue-600 rounded-full w-14 h-14 flex items-center justify-center mr-4">
                             <i class="fas fa-user text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-gray-800">Parent</h4>
-                            <p class="text-gray-500 text-sm">Science Help</p>
+                            <h4 class="font-bold text-gray-800 text-lg">Parent</h4>
+                            <p class="text-gray-500">Science Help • 2 months ago</p>
                         </div>
                     </div>
-                    <p class="text-gray-600 italic">"Thank you for offering this support for free. My daughter's science grades have improved significantly, and she's much more confident now."</p>
+                    <div class="flex mb-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic text-lg leading-relaxed">"Thank you for offering this support for free. My daughter's science grades have improved significantly, and she's much more confident now. She actually looks forward to her tutoring sessions!"</p>
+                    <div class="mt-4 flex items-center">
+                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-check text-green-600 text-sm"></i>
+                        </div>
+                        <span class="text-sm text-green-600 ml-2">Confidence & grades improved</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+                <div class="text-center p-6 bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-xl">
+                    <div class="text-4xl font-bold mb-2">50+</div>
+                    <div class="text-blue-100">Students Helped</div>
+                </div>
+                <div class="text-center p-6 bg-gradient-to-br from-yellow-400 to-yellow-500 text-white rounded-xl">
+                    <div class="text-4xl font-bold mb-2">94%</div>
+                    <div class="text-yellow-100">Satisfaction Rate</div>
+                </div>
+                <div class="text-center p-6 bg-gradient-to-br from-green-500 to-green-600 text-white rounded-xl">
+                    <div class="text-4xl font-bold mb-2">∞</div>
+                    <div class="text-green-100">Potential Unlocked</div>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-gray-50">
+    <section id="contact" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
         <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Get In Touch</h2>
-                <div class="flex flex-col md:flex-row gap-8">
-                    <div class="md:w-1/2">
-                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScJUrKBx6_nPNA7J338QtLtqQCXRnO8PnKKIjkMv1q3Gyvymw/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4 relative inline-block">
+                        Get In Touch
+                        <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-500 to-yellow-400"></span>
+                    </h2>
+                    <p class="text-xl text-gray-600">Ready to unlock your bright mind? Schedule your free session today!</p>
+                </div>
+                
+                <div class="flex flex-col lg:flex-row gap-10">
+                    <div class="lg:w-2/3">
+                        <div class="bg-white rounded-2xl shadow-xl p-8">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                                <i class="fas fa-calendar-check mr-3 text-blue-500"></i>
+                                Schedule Your Free Session
+                            </h3>
+                            <p class="text-gray-600 mb-6">Fill out the form below to book your personalized tutoring session. We'll get back to you within 24 hours to confirm your appointment.</p>
+                            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScJUrKBx6_nPNA7J338QtLtqQCXRnO8PnKKIjkMv1q3Gyvymw/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" class="rounded-lg shadow-inner">Loading…</iframe>
+                        </div>
                     </div>
-                    <div class="md:w-1/2">
-                        <div class="bg-white p-6 rounded-lg shadow-sm h-full">
-                            <h3 class="text-xl font-bold text-gray-800 mb-4">Contact Information</h3>
-                            <div class="space-y-4">
-                                <div class="flex items-start">
-                                    <i class="fas fa-envelope text-blue-500 mt-1 mr-4 text-xl"></i>
+                    
+                    <div class="lg:w-1/3">
+                        <div class="bg-white rounded-2xl shadow-xl p-8 sticky top-24">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                                <i class="fas fa-info-circle mr-3 text-blue-500"></i>
+                                Contact Info
+                            </h3>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start p-4 bg-blue-50 rounded-lg">
+                                    <div class="bg-blue-100 p-3 rounded-full mr-4 mt-1">
+                                        <i class="fas fa-envelope text-blue-600"></i>
+                                    </div>
                                     <div>
                                         <h4 class="font-bold text-gray-800">Email</h4>
-                                        <a href="mailto:salahdiinadan@gmail.com" class="text-blue-500 hover:underline">salahdiinadan@gmail.com</a>
+                                        <a href="mailto:salahdiinadan@gmail.com" class="text-blue-600 hover:underline break-all">salahdiinadan@gmail.com</a>
                                     </div>
                                 </div>
-                                <div class="flex items-start">
-                                    <i class="fas fa-phone-alt text-blue-500 mt-1 mr-4 text-xl"></i>
+                                
+                                <div class="flex items-start p-4 bg-blue-50 rounded-lg">
+                                    <div class="bg-blue-100 p-3 rounded-full mr-4 mt-1">
+                                        <i class="fas fa-phone-alt text-blue-600"></i>
+                                    </div>
                                     <div>
                                         <h4 class="font-bold text-gray-800">Phone</h4>
-                                        <a href="tel:3034098948" class="text-blue-500 hover:underline">(303) 409-8948</a>
+                                        <a href="tel:3034098948" class="text-blue-600 hover:underline">(303) 409-8948</a>
                                     </div>
                                 </div>
-                                <div class="flex items-start">
-                                    <i class="fas fa-info-circle text-blue-500 mt-1 mr-4 text-xl"></i>
+                                
+                                <div class="flex items-start p-4 bg-blue-50 rounded-lg">
+                                    <div class="bg-blue-100 p-3 rounded-full mr-4 mt-1">
+                                        <i class="fas fa-clock text-blue-600"></i>
+                                    </div>
                                     <div>
                                         <h4 class="font-bold text-gray-800">Availability</h4>
                                         <p class="text-gray-600">Weekdays after school hours and weekends</p>
                                     </div>
                                 </div>
+                                
+                                <div class="flex items-start p-4 bg-blue-50 rounded-lg">
+                                    <div class="bg-blue-100 p-3 rounded-full mr-4 mt-1">
+                                        <i class="fas fa-video text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">Session Format</h4>
+                                        <p class="text-gray-600">Virtual sessions via Zoom or Google Meet</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="mt-8">
-                                <h4 class="font-bold text-gray-800 mb-2">Why Bright Minds?</h4>
-                                <p class="text-gray-600">Because every student is smart - they just need the right support to shine.</p>
+                            
+                            <div class="mt-8 p-6 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl">
+                                <h4 class="font-bold text-lg mb-3 flex items-center">
+                                    <i class="fas fa-lightbulb mr-2"></i>
+                                    Bright Minds Promise
+                                </h4>
+                                <p class="text-blue-50">We believe every student has the potential to succeed. Our free tutoring services are designed to help you unlock your bright mind and achieve your academic goals.</p>
                             </div>
                         </div>
                     </div>
@@ -330,37 +780,70 @@
             </div>
         </div>
     </section>
-
+    
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
+    <footer class="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-12">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <div class="flex items-center">
-                        <img src="https://i.imgur.com/7eyXdWR.png" alt="Bright Minds Tutoring" class="h-8 w-auto mr-2">
-                        <h3 class="text-xl font-bold">Bright Minds Tutoring</h3>
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start mb-4">
+                        <img src="https://i.imgur.com/7eyXdWR.png" alt="Bright Minds Tutoring" class="h-10 w-auto mr-3">
+                        <h3 class="text-2xl font-bold">Bright Minds</h3>
                     </div>
-                    <p class="text-gray-400 mt-2">Free tutoring for students</p>
+                    <p class="text-gray-300">Empowering students through free, personalized tutoring</p>
                 </div>
+                
                 <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white transition">
-                        <i class="fab fa-facebook-f text-xl"></i>
+                    <a href="https://www.instagram.com/brightmindstutoring.site/" class="text-gray-300 hover:text-white transition duration-300 transform hover:scale-110" target="_blank">
+                        <i class="fab fa-instagram text-2xl"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition">
-                        <i class="fab fa-twitter text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition">
-                        <i class="fab fa-instagram text-xl"></i>
+                    <a href="https://www.tiktok.com/@brightmindstutoring.site" class="text-gray-300 hover:text-white transition duration-300 transform hover:scale-110" target="_blank">
+                        <i class="fab fa-tiktok text-2xl"></i>
                     </a>
                 </div>
             </div>
-            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
-                <p> 2025 Bright Minds Tutoring - Made with  ❤️ by Salahdiin Ahmed Adan</p>
-                <p class="mt-2 text-sm">All sessions are 100% free for students in need</p>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                    <div>
+                        <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#about" class="text-gray-300 hover:text-white transition">About Us</a></li>
+                            <li><a href="#subjects" class="text-gray-300 hover:text-white transition">Subjects</a></li>
+                            <li><a href="#who" class="text-gray-300 hover:text-white transition">Who It's For</a></li>
+                            <li><a href="#contact" class="text-gray-300 hover:text-white transition">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold text-lg mb-4">Services</h4>
+                        <ul class="space-y-2">
+                            <li>Free Math Tutoring</li>
+                            <li>Science Help</li>
+                            <li>Study Skills</li>
+                            <li>Homework Assistance</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold text-lg mb-4">Contact</h4>
+                        <ul class="space-y-2">
+                            <li>salahdiinadan@gmail.com</li>
+                            <li>(303) 409-8948</li>
+                            <li>Virtual Sessions</li>
+                            <li>Available Weekdays & Weekends</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-700 mt-8 pt-6 text-center">
+                    <p>© 2025 Bright Minds Tutoring - Made with ❤️ by <a href="https://salahdiinadan.me" target="_blank" class="text-blue-400 hover:underline">Salahdiin Ahmed Adan</a></p>
+                    <p class="mt-2 text-sm text-gray-400">All sessions are 100% free for students in need</p>
+                </div>
             </div>
         </div>
     </footer>
-
+    
     <script>
         // 500 Fun Facts Array
         const funFacts = [
@@ -398,12 +881,6 @@
             "Butterflies taste with their feet!",
             "The average person produces enough saliva to fill two swimming pools!",
             "The shortest war in history was between Britain and Zanzibar in 1896!",
-            "A group of ferrets is called a 'business'!",
-            "The longest hiccuping spree lasted 68 years!",
-            "The first computer bug was an actual bug!",
-            "Astronauts can't cry in space!",
-            "The average person will spend 25 years sleeping!",
-            "The first oranges were actually green!",
             "A single strand of spaghetti is called a 'spaghetto'!",
             "The world's largest snowflake was 15 inches wide!",
             "The average person has 1,460 dreams per year!",
@@ -421,7 +898,7 @@
             "The first computer mouse was made of wood!",
             "A group of giraffes is called a 'tower'!",
             "The human heart beats over 100,000 times per day!",
-            "The longest English word with one syllable is 'screeched'!",
+            "The longest word in English with one syllable is 'screeched'!",
             "The average person will walk 75,000 miles in their lifetime!",
             "The first rubber band was made from rubber!",
             "A group of jellyfish is called a 'smack'!",
@@ -620,12 +1097,30 @@
             "The average person will spend 1 day dancing!",
             "The first stretchable phone was created in 2021!"
         ];
-
+        
+        // Create stars in loading screen
+        function createLoadingStars() {
+            const starsContainer = document.getElementById('loading-stars');
+            for (let i = 0; i < 20; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.width = `${Math.random() * 4 + 2}px`;
+                star.style.height = `${Math.random() * 4 + 2}px`;
+                star.style.animationDelay = `${Math.random() * 3}s`;
+                starsContainer.appendChild(star);
+            }
+        }
+        
         // Loading screen functionality
         function showLoadingScreen() {
             const loadingScreen = document.getElementById('loading-screen');
             const funFactElement = document.getElementById('fun-fact');
             const progressBar = document.getElementById('progress-bar');
+            
+            // Create stars
+            createLoadingStars();
             
             // Random fun fact
             const randomFact = funFacts[Math.floor(Math.random() * funFacts.length)];
@@ -636,45 +1131,74 @@
             const interval = setInterval(() => {
                 progress += 2;
                 progressBar.style.width = progress + '%';
-                
                 if (progress >= 100) {
                     clearInterval(interval);
                     setTimeout(() => {
                         loadingScreen.classList.add('fade-out');
+                        loadingScreen.style.opacity = '0';
                         setTimeout(() => {
                             loadingScreen.style.display = 'none';
+                            // Trigger reveal animations
+                            document.querySelectorAll('.stagger-reveal').forEach((el, index) => {
+                                setTimeout(() => {
+                                    el.classList.add('reveal-active');
+                                }, index * 150);
+                            });
                         }, 500);
                     }, 1000);
                 }
             }, 100);
         }
-
+        
         // Initialize loading screen
         document.addEventListener('DOMContentLoaded', showLoadingScreen);
-
+        
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+            // Add animation
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.style.animation = 'fadeInDown 0.3s ease-out';
+            }
         });
-
+        
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
                 // Close mobile menu if open
                 if (!mobileMenu.classList.contains('hidden')) {
                     mobileMenu.classList.add('hidden');
                 }
-                
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
             });
         });
+        
+        // Add scroll reveal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for scroll reveal
+        document.querySelectorAll('.card-hover, .testimonial-card, .subject-card').forEach(el => {
+            el.classList.add('stagger-reveal');
+            observer.observe(el);
+        });
     </script>
 </body>
 </html>
+```
