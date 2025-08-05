@@ -17,22 +17,18 @@
             opacity: 0;
             animation: fadeIn 1s ease-in-out forwards;
         }
-        
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-        
         h1, h2, h3, h4 {
             font-family: 'Poppins', sans-serif;
         }
-        
         .hero-gradient {
             background: linear-gradient(135deg, #4AA8D8 0%, #FDE74C 100%);
             position: relative;
             overflow: hidden;
         }
-        
         .hero-gradient::before {
             content: '';
             position: absolute;
@@ -43,14 +39,12 @@
             background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.1) 0%, transparent 50%);
             pointer-events: none;
         }
-        
         .subject-card {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
             border-radius: 1rem;
         }
-        
         .subject-card::before {
             content: '';
             position: absolute;
@@ -62,67 +56,54 @@
             transition: all 0.6s ease;
             z-index: 1;
         }
-        
         .subject-card:hover::before {
             left: 100%;
         }
-        
         .subject-card:hover {
             transform: translateY(-10px) scale(1.02);
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
             z-index: 10;
         }
-        
         .pulse-button {
             animation: pulse 2s infinite;
         }
-        
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.7); }
             70% { box-shadow: 0 0 0 10px rgba(255,255,255,0); }
             100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
         }
-        
         .floating {
             animation: float 6s ease-in-out infinite;
         }
-        
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
             100% { transform: translateY(0px); }
         }
-        
         .stagger-reveal {
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
-        
         .reveal-active {
             opacity: 1;
             transform: translateY(0);
         }
-        
         .testimonial-card {
             transition: all 0.3s ease;
         }
-        
         .testimonial-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
-        
         .logo-glow {
             filter: drop-shadow(0 0 10px rgba(74, 168, 216, 0.5));
             transition: all 0.3s ease;
         }
-        
         .logo-glow:hover {
             filter: drop-shadow(0 0 20px rgba(74, 168, 216, 0.8));
             transform: scale(1.05);
         }
-        
         .star {
             position: absolute;
             background: white;
@@ -130,19 +111,16 @@
             opacity: 0;
             animation: twinkle 3s infinite alternate;
         }
-        
         @keyframes twinkle {
             0% { opacity: 0; transform: scale(0.5); }
             100% { opacity: 1; transform: scale(1); }
         }
-        
         .floating-icon {
             position: fixed;
             z-index: -1;
             opacity: 0.2;
             pointer-events: none;
         }
-        
         .chat-bubble {
             position: fixed;
             bottom: 20px;
@@ -156,23 +134,19 @@
             animation: chatBubble 4s infinite;
             z-index: 100;
         }
-        
         @keyframes chatBubble {
             0%, 100% { transform: translateY(0); opacity: 1; }
             50% { transform: translateY(-10px); opacity: 0.7; }
         }
-        
         .gradient-text {
             background: linear-gradient(90deg, #4AA8D8, #FDE74C);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
         .card-hover {
             transition: all 0.3s ease;
         }
-        
         .card-hover:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.12);
@@ -193,12 +167,10 @@
     <div class="floating-icon" style="top: 60%; right: 25%; animation: float 9s ease-in-out infinite; animation-delay: 1s;">
         <i class="fas fa-square-root-alt text-4xl text-blue-300"></i>
     </div>
-    
     <!-- Chat Bubble -->
     <div class="chat-bubble">
         <i class="fas fa-comment-dots mr-2"></i> Need help? Book a free session!
     </div>
-    
     <!-- Loading Screen -->
     <div id="loading-screen" class="fixed inset-0 bg-gradient-to-br from-blue-500 via-blue-400 to-yellow-400 flex items-center justify-center z-50">
         <div class="text-center text-white px-4 relative">
@@ -212,12 +184,10 @@
                 <div id="progress-bar" class="bg-white h-2 rounded-full transition-all duration-100"></div>
             </div>
             <p class="text-sm opacity-80">Preparing your learning journey</p>
-            
             <!-- Stars -->
             <div id="loading-stars"></div>
         </div>
     </div>
-    
     <!-- Header/Navigation -->
     <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
@@ -255,7 +225,6 @@
             </ul>
         </div>
     </header>
-    
     <!-- Hero Section with Mountain Background -->
     <section class="hero-gradient text-white py-16 md:py-24 relative overflow-hidden">
         <!-- Mountain Background -->
@@ -283,7 +252,6 @@
             <div class="absolute top-12 right-40 w-40 h-20 bg-white rounded-full opacity-70"></div>
             <div class="absolute top-32 right-60 w-30 h-15 bg-white rounded-full opacity-70"></div>
         </div>
-        
         <!-- Content -->
         <div class="container mx-auto px-4 text-center relative z-10">
             <div class="mb-6 floating">
@@ -298,7 +266,6 @@
                     <i class="fas fa-graduation-cap mr-2"></i> Discover Our Programs
                 </a>
             </div>
-            
             <!-- Welcome Message -->
             <div class="mt-12 bg-white/20 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto border border-white/30">
                 <div class="flex items-center justify-center mb-3">
@@ -308,7 +275,6 @@
                 <p class="text-sm opacity-90">At Bright Minds, we believe every student has incredible potential. Our mission is to create a warm, supportive space where you can grow your confidence, discover your strengths, and achieve your academic goals - all completely free of charge.</p>
             </div>
         </div>
-        
         <!-- Background Elements -->
         <div class="absolute top-10 left-10 opacity-10">
             <i class="fas fa-star text-6xl rotate-45"></i>
@@ -323,7 +289,6 @@
             <i class="fas fa-brain text-5xl"></i>
         </div>
     </section>
-    
     <!-- About Section -->
     <section id="about" class="py-20 bg-white">
         <div class="container mx-auto px-4">
@@ -354,7 +319,6 @@
                         </div>
                     </div>
                     <p class="text-gray-600 text-lg leading-relaxed">Struggling in school? We're here to help - for free. At Bright Minds Tutoring, we offer free one-on-one tutoring for middle schoolers who need extra help, especially those who can't afford paid tutors. Our sessions are personalized, engaging, and designed to make learning enjoyable.</p>
-                    
                     <!-- Stats -->
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
                         <div class="text-center p-4 bg-blue-50 rounded-lg card-hover">
@@ -378,7 +342,6 @@
             </div>
         </div>
     </section>
-    
     <!-- Subjects Section -->
     <section id="subjects" class="py-20 bg-gradient-to-br from-blue-50 to-yellow-50">
         <div class="container mx-auto px-4">
@@ -389,7 +352,6 @@
                 </h2>
                 <p class="text-xl text-gray-600 max-w-2xl mx-auto">Personalized tutoring designed to make learning engaging and effective</p>
             </div>
-            
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Math Card -->
                 <div class="subject-card bg-white rounded-xl shadow-lg p-8 transition-all duration-500 transform hover:-translate-y-4">
@@ -423,7 +385,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <!-- Science Card -->
                 <div class="subject-card bg-white rounded-xl shadow-lg p-8 transition-all duration-500 transform hover:-translate-y-4">
                     <div class="text-blue-500 mb-6 text-center">
@@ -456,7 +417,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <!-- Study Skills Card -->
                 <div class="subject-card bg-white rounded-xl shadow-lg p-8 transition-all duration-500 transform hover:-translate-y-4">
                     <div class="text-blue-500 mb-6 text-center">
@@ -489,7 +449,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <!-- Homework Help Card -->
                 <div class="subject-card bg-white rounded-xl shadow-lg p-8 transition-all duration-500 transform hover:-translate-y-4">
                     <div class="text-blue-500 mb-6 text-center">
@@ -523,7 +482,6 @@
                     </div>
                 </div>
             </div>
-            
             <!-- Learning Approach -->
             <div class="mt-16 bg-white rounded-2xl shadow-xl p-8 md:p-12">
                 <div class="text-center mb-10">
@@ -556,7 +514,6 @@
             </div>
         </div>
     </section>
-    
     <!-- Who It's For Section -->
     <section id="who" class="py-20 bg-gradient-to-br from-blue-100 to-blue-50">
         <div class="container mx-auto px-4">
@@ -567,7 +524,6 @@
                 </h2>
                 <p class="text-xl text-gray-600 mb-8">Bright Minds Tutoring is specifically designed for students who need extra help but may not have access to paid tutoring services.</p>
             </div>
-            
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                 <div class="bg-white p-8 rounded-2xl shadow-lg card-hover transform hover:scale-105 transition-all duration-300">
                     <div class="text-blue-500 mb-6 text-center">
@@ -578,7 +534,6 @@
                     </div>
                     <p class="text-gray-600 text-center leading-relaxed">Grades 6-10 who need academic support in math, science, or study skills. Perfect for students preparing for exams or struggling with specific concepts.</p>
                 </div>
-                
                 <div class="bg-white p-8 rounded-2xl shadow-lg card-hover transform hover:scale-105 transition-all duration-300">
                     <div class="text-blue-500 mb-6 text-center">
                         <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -588,7 +543,6 @@
                     </div>
                     <p class="text-gray-600 text-center leading-relaxed">From low-income or underprivileged communities. We believe every student deserves access to quality education support, regardless of financial situation.</p>
                 </div>
-                
                 <div class="bg-white p-8 rounded-2xl shadow-lg card-hover transform hover:scale-105 transition-all duration-300">
                     <div class="text-blue-500 mb-6 text-center">
                         <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -599,7 +553,6 @@
                     <p class="text-gray-600 text-center leading-relaxed">No complicated sign-up process. If you're struggling with schoolwork and want to improve, we're here to help you succeed.</p>
                 </div>
             </div>
-            
             <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-2xl p-8 md:p-10 text-center max-w-3xl mx-auto shadow-xl">
                 <div class="flex items-center justify-center mb-4">
                     <i class="fas fa-gift text-3xl mr-3"></i>
@@ -609,7 +562,6 @@
             </div>
         </div>
     </section>
-    
     <!-- Testimonials Section -->
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
@@ -620,7 +572,6 @@
                 </h2>
                 <p class="text-xl text-gray-600">Hear from students and parents who've experienced the Bright Minds difference</p>
             </div>
-            
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="testimonial-card bg-gradient-to-br from-yellow-50 to-orange-50 p-8 rounded-2xl shadow-lg border-l-4 border-yellow-400 transform hover:scale-102 transition-all duration-300">
                     <div class="flex items-center mb-6">
@@ -647,7 +598,6 @@
                         <span class="text-sm text-green-600 ml-2">Grade improved from D to B</span>
                     </div>
                 </div>
-                
                 <div class="testimonial-card bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl shadow-lg border-l-4 border-blue-400 transform hover:scale-102 transition-all duration-300">
                     <div class="flex items-center mb-6">
                         <div class="bg-blue-100 text-blue-600 rounded-full w-14 h-14 flex items-center justify-center mr-4">
@@ -674,7 +624,6 @@
                     </div>
                 </div>
             </div>
-            
             <!-- Testimonial Stats -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
                 <div class="text-center p-6 bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-xl">
@@ -692,7 +641,6 @@
             </div>
         </div>
     </section>
-    
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
         <div class="container mx-auto px-4">
@@ -704,7 +652,6 @@
                     </h2>
                     <p class="text-xl text-gray-600">Ready to unlock your bright mind? Schedule your free session today!</p>
                 </div>
-                
                 <div class="flex flex-col lg:flex-row gap-10">
                     <div class="lg:w-2/3">
                         <div class="bg-white rounded-2xl shadow-xl p-8">
@@ -715,15 +662,24 @@
                             <p class="text-gray-600 mb-6">Fill out the form below to book your personalized tutoring session. We'll get back to you within 24 hours to confirm your appointment.</p>
                             <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScJUrKBx6_nPNA7J338QtLtqQCXRnO8PnKKIjkMv1q3Gyvymw/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" class="rounded-lg shadow-inner">Loading…</iframe>
                         </div>
+                        <div class="bg-white rounded-2xl shadow-xl p-8 mt-8">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                                <i class="fas fa-handshake mr-3 text-blue-500"></i>
+                                Join Our Volunteer Team
+                            </h3>
+                            <p class="text-gray-600 mb-6">We're looking for passionate students who want to make a difference! Join our volunteer team and help us provide free tutoring to more students in need.</p>
+                            <p class="text-gray-600 mb-6">As a volunteer tutor, you'll gain valuable teaching experience, develop leadership skills, and make a real impact in your community.</p>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScAPaVjquJ1fUPRnxzShAVWNqhXF3nFxJn0ucATOCD2PgItEw/viewform?usp=dialog" target="_blank" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105 shadow-md">
+                                <i class="fas fa-user-plus mr-2"></i> Sign Up as a Volunteer
+                            </a>
+                        </div>
                     </div>
-                    
                     <div class="lg:w-1/3">
                         <div class="bg-white rounded-2xl shadow-xl p-8 sticky top-24">
                             <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
                                 <i class="fas fa-info-circle mr-3 text-blue-500"></i>
                                 Contact Info
                             </h3>
-                            
                             <div class="space-y-6">
                                 <div class="flex items-start p-4 bg-blue-50 rounded-lg">
                                     <div class="bg-blue-100 p-3 rounded-full mr-4 mt-1">
@@ -734,7 +690,6 @@
                                         <a href="mailto:salahdiinadan@gmail.com" class="text-blue-600 hover:underline break-all">salahdiinadan@gmail.com</a>
                                     </div>
                                 </div>
-                                
                                 <div class="flex items-start p-4 bg-blue-50 rounded-lg">
                                     <div class="bg-blue-100 p-3 rounded-full mr-4 mt-1">
                                         <i class="fas fa-phone-alt text-blue-600"></i>
@@ -744,7 +699,6 @@
                                         <a href="tel:3034098948" class="text-blue-600 hover:underline">(303) 409-8948</a>
                                     </div>
                                 </div>
-                                
                                 <div class="flex items-start p-4 bg-blue-50 rounded-lg">
                                     <div class="bg-blue-100 p-3 rounded-full mr-4 mt-1">
                                         <i class="fas fa-clock text-blue-600"></i>
@@ -754,7 +708,6 @@
                                         <p class="text-gray-600">Weekdays after school hours and weekends</p>
                                     </div>
                                 </div>
-                                
                                 <div class="flex items-start p-4 bg-blue-50 rounded-lg">
                                     <div class="bg-blue-100 p-3 rounded-full mr-4 mt-1">
                                         <i class="fas fa-video text-blue-600"></i>
@@ -765,7 +718,6 @@
                                     </div>
                                 </div>
                             </div>
-                            
                             <div class="mt-8 p-6 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl">
                                 <h4 class="font-bold text-lg mb-3 flex items-center">
                                     <i class="fas fa-lightbulb mr-2"></i>
@@ -779,7 +731,6 @@
             </div>
         </div>
     </section>
-    
     <!-- Footer -->
     <footer class="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-12">
         <div class="container mx-auto px-4">
@@ -791,7 +742,6 @@
                     </div>
                     <p class="text-gray-300">Empowering students through free, personalized tutoring</p>
                 </div>
-                
                 <div class="flex space-x-6">
                     <a href="https://www.instagram.com/brightmindstutoring.site/" class="text-gray-300 hover:text-white transition duration-300 transform hover:scale-110" target="_blank">
                         <i class="fab fa-instagram text-2xl"></i>
@@ -801,7 +751,6 @@
                     </a>
                 </div>
             </div>
-            
             <div class="border-t border-gray-700 mt-8 pt-8">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
                     <div>
@@ -813,7 +762,6 @@
                             <li><a href="#contact" class="text-gray-300 hover:text-white transition">Contact</a></li>
                         </ul>
                     </div>
-                    
                     <div>
                         <h4 class="font-bold text-lg mb-4">Services</h4>
                         <ul class="space-y-2">
@@ -823,7 +771,6 @@
                             <li>Homework Assistance</li>
                         </ul>
                     </div>
-                    
                     <div>
                         <h4 class="font-bold text-lg mb-4">Contact</h4>
                         <ul class="space-y-2">
@@ -834,7 +781,6 @@
                         </ul>
                     </div>
                 </div>
-                
                 <div class="border-t border-gray-700 mt-8 pt-6 text-center">
                     <p>© 2025 Bright Minds Tutoring - Made with ❤️ by <a href="https://salahdiinadan.me" target="_blank" class="text-blue-400 hover:underline">Salahdiin Ahmed Adan</a></p>
                     <p class="mt-2 text-sm text-gray-400">All sessions are 100% free for students in need</p>
@@ -842,7 +788,6 @@
             </div>
         </div>
     </footer>
-    
     <script>
         // 500 Fun Facts Array
         const funFacts = [
@@ -901,7 +846,7 @@
             "The average person will walk 75,000 miles in their lifetime!",
             "The first rubber band was made from rubber!",
             "A group of jellyfish is called a 'smack'!",
-            "The human brain is more active at night than during the day!",
+            "The brain is more active at night than during the day!",
             "The longest word in the English language has 45 letters!",
             "The average person will spend 5 years eating!",
             "The first person to go over Niagara Falls in a barrel was a 63-year-old teacher!",
@@ -1096,7 +1041,6 @@
             "The average person will spend 1 day dancing!",
             "The first stretchable phone was created in 2021!"
         ];
-        
         // Create stars in loading screen
         function createLoadingStars() {
             const starsContainer = document.getElementById('loading-stars');
@@ -1111,20 +1055,16 @@
                 starsContainer.appendChild(star);
             }
         }
-        
         // Loading screen functionality
         function showLoadingScreen() {
             const loadingScreen = document.getElementById('loading-screen');
             const funFactElement = document.getElementById('fun-fact');
             const progressBar = document.getElementById('progress-bar');
-            
             // Create stars
             createLoadingStars();
-            
             // Random fun fact
             const randomFact = funFacts[Math.floor(Math.random() * funFacts.length)];
             funFactElement.textContent = randomFact;
-            
             // Progress bar animation
             let progress = 0;
             const interval = setInterval(() => {
@@ -1148,10 +1088,8 @@
                 }
             }, 100);
         }
-        
         // Initialize loading screen
         document.addEventListener('DOMContentLoaded', showLoadingScreen);
-        
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -1162,7 +1100,6 @@
                 mobileMenu.style.animation = 'fadeInDown 0.3s ease-out';
             }
         });
-        
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1176,13 +1113,11 @@
                 });
             });
         });
-        
         // Add scroll reveal animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
-        
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1191,7 +1126,6 @@
                 }
             });
         }, observerOptions);
-        
         // Observe elements for scroll reveal
         document.querySelectorAll('.card-hover, .testimonial-card, .subject-card').forEach(el => {
             el.classList.add('stagger-reveal');
