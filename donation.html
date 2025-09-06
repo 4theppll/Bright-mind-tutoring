@@ -352,7 +352,7 @@
             const email = document.getElementById('donor-email').value;
             
             // Construct PayPal link
-            const paypalLink = `https://www.paypal.com/donate/?hosted_button_id=@BrightMindTutoring&amount=${amount}&currency_code=USD&item_name=Bright+Minds+Tutoring+Donation&custom=${frequency}`;
+            const paypalLink = `paypal.me/BrightMindTutoring=${amount}&currency_code=USD&item_name=Bright+Minds+Tutoring+Donation&custom=${frequency}`;
             
             // Open PayPal in new tab
             window.open(paypalLink, '_blank');
