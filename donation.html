@@ -355,7 +355,7 @@
             const paypalLink = `paypal.me/BrightMindTutoring=${amount}&currency_code=USD&item_name=Bright+Minds+Tutoring+Donation&custom=${frequency}`;
             
             // Open PayPal in new tab
-            window.open(paypalLink, '_blank');
+            window.open(paypalLink, 'paypal.me/BrightMindTutoring');
             
             // Show thank you message
             alert(`Thank you, ${name}! You will be redirected to PayPal to complete your ${frequency === 'one-time' ? 'one-time' : frequency} donation of $${amount}. We appreciate your support!`);
