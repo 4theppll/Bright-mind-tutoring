@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - Bright Minds Tutoring</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-image: url('https://i.imgur.com/7eyXdWR.png');
+            background-size: 50px;
+            background-position: center;
+            background-repeat: repeat;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #4AA8D8 0%, #FDE74C 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #4AA8D8, #FDE74C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center">
+                <img src="https://i.imgur.com/7eyXdWR.png" alt="Bright Minds Tutoring" class="h-10 w-auto mr-2">
+                <h1 class="text-2xl font-bold text-blue-500">Bright Minds</h1>
+            </a>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-8">
+                    <li><a href="index.html" class="text-gray-700 hover:text-blue-500 font-medium transition">Home</a></li>
+                    <li><a href="volunteers.html" class="text-gray-700 hover:text-blue-500 font-medium transition">Volunteers</a></li>
+                    <li><a href="donation.html" class="text-blue-500 font-medium">Donate</a></li>
+                </ul>
+            </nav>
+            <button class="md:hidden text-gray-700" id="mobile-menu-button">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-white/95 backdrop-blur-md w-full py-4 px-4 shadow-lg" id="mobile-menu">
+            <ul class="space-y-4">
+                <li><a href="index.html" class="block text-gray-700 hover:text-blue-500 font-medium py-2 border-b border-gray-100">Home</a></li>
+                <li><a href="volunteers.html" class="block text-gray-700 hover:text-blue-500 font-medium py-2 border-b border-gray-100">Volunteers</a></li>
+                <li><a href="donation.html" class="block text-blue-500 font-medium py-2 border-b border-gray-100">Donate</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16 md:py-24">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-6xl font-bold mb-6" data-aos="fade-up">Support Bright Minds</h2>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90" data-aos="fade-up" data-aos-delay="100">Help us continue providing free tutoring to students in need</p>
+            <div class="mt-8" data-aos="fade-up" data-aos-delay="200">
+                <a href="#donate-form" class="bg-white text-blue-600 font-bold py-4 px-8 rounded-full hover:bg-gray-100 transition duration-300 transform hover:scale-105 shadow-lg inline-block">
+                    <i class="fas fa-heart mr-2"></i> Make a Donation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Donate Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 relative inline-block">
+                    Why Your Support Matters
+                    <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-blue-500 to-yellow-400"></span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Every donation helps us provide free, quality education to students who need it most</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-xl p-8 card-hover text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-graduation-cap text-4xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Provide Free Tutoring</h3>
+                    <p class="text-gray-600 leading-relaxed">Your donation ensures that every student, regardless of their financial situation, has access to quality tutoring and academic support.</p>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-xl p-8 card-hover text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-laptop text-4xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Technology & Resources</h3>
+                    <p class="text-gray-600 leading-relaxed">Help us provide the necessary technology, learning materials, and resources to create engaging and effective tutoring sessions.</p>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-xl p-8 card-hover text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-users text-4xl text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Support Volunteers</h3>
+                    <p class="text-gray-600 leading-relaxed">Support our dedicated volunteers with training, resources, and recognition they need to provide the best possible tutoring experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Form Section -->
+    <section id="donate-form" class="py-20 bg-gradient-to-br from-blue-50 to-yellow-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-8 md:p-12" data-aos="fade-up">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Make a Donation</h2>
+                    <p class="text-gray-600">Every contribution, no matter the size, makes a difference in a student's life</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-6">Choose Your Amount</h3>
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <button class="donation-amount bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold py-4 px-6 rounded-lg transition duration-300 border-2 border-blue-200 hover:border-blue-400" data-amount="25">$25</button>
+                            <button class="donation-amount bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold py-4 px-6 rounded-lg transition duration-300 border-2 border-blue-200 hover:border-blue-400" data-amount="50">$50</button>
+                            <button class="donation-amount bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold py-4 px-6 rounded-lg transition duration-300 border-2 border-blue-200 hover:border-blue-400" data-amount="100">$100</button>
+                            <button class="donation-amount bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold py-4 px-6 rounded-lg transition duration-300 border-2 border-blue-200 hover:border-blue-400" data-amount="250">$250</button>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-gray-700 font-medium mb-2">Custom Amount</label>
+                            <input type="number" id="custom-amount" placeholder="Enter custom amount" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+
+                        <h3 class="text-xl font-bold text-gray-800 mb-6">Donation Frequency</h3>
+                        <div class="space-y-3 mb-6">
+                            <label class="flex items-center">
+                                <input type="radio" name="frequency" value="one-time" checked class="mr-3 text-blue-600">
+                                <span class="text-gray-700">One-time donation</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="frequency" value="monthly" class="mr-3 text-blue-600">
+                                <span class="text-gray-700">Monthly donation</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="frequency" value="yearly" class="mr-3 text-blue-600">
+                                <span class="text-gray-700">Yearly donation</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-6">Your Information</h3>
+                        <form id="donation-form" class="space-y-4">
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">Full Name *</label>
+                                <input type="text" id="donor-name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">Email Address *</label>
+                                <input type="email" id="donor-email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                                <input type="tel" id="donor-phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">Message (Optional)</label>
+                                <textarea id="donor-message" rows="3" placeholder="Tell us why you're supporting Bright Minds..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold py-4 px-8 rounded-lg hover:from-blue-600 hover:to-blue-700 transition duration-300 transform hover:scale-105 shadow-lg">
+                                <i class="fab fa-paypal mr-2"></i> Donate via PayPal
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="mt-10 p-6 bg-yellow-50 border-l-4 border-yellow-400 rounded-r-lg">
+                    <div class="flex items-start">
+                        <i class="fas fa-info-circle text-yellow-600 mr-3 mt-1"></i>
+                        <div>
+                            <p class="text-gray-700 font-medium">All donations are processed through PayPal for security and transparency.</p>
+                            <p class="text-gray-600 text-sm mt-1">Bright Minds Tutoring is a volunteer organization. Your donation helps us continue providing free tutoring services to students in need.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 relative inline-block">
+                    Your Impact
+                    <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-500 to-yellow-400"></span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">See how your donation transforms students' lives</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-8 rounded-2xl text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-5xl font-bold mb-4">$25</div>
+                    <h3 class="text-xl font-bold mb-4">Provides 1 Week of Tutoring</h3>
+                    <p class="opacity-90">Your $25 donation can provide a full week of personalized tutoring sessions for one student, helping them build confidence and improve their grades.</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-green-500 to-green-600 text-white p-8 rounded-2xl text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-5xl font-bold mb-4">$100</div>
+                    <h3 class="text-xl font-bold mb-4">Supports 1 Month of Learning</h3>
+                    <p class="opacity-90">A $100 donation can provide comprehensive tutoring support for a student for an entire month, covering multiple subjects and study skills.</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-8 rounded-2xl text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-5xl font-bold mb-4">$250</div>
+                    <h3 class="text-xl font-bold mb-4">Equips Our Volunteers</h3>
+                    <p class="opacity-90">Your $250 donation helps us provide training, resources, and materials to our volunteer tutors, ensuring they can deliver the best possible education.</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-yellow-500 to-yellow-600 text-white p-8 rounded-2xl text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-5xl font-bold mb-4">Any Amount</div>
+                    <h3 class="text-xl font-bold mb-4">Makes a Difference</h3>
+                    <p class="opacity-90">Every dollar counts! Even small donations help us continue our mission of providing free, quality education to students who need it most.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start mb-4">
+                        <img src="https://i.imgur.com/7eyXdWR.png" alt="Bright Minds Tutoring" class="h-10 w-auto mr-3">
+                        <h3 class="text-2xl font-bold">Bright Minds</h3>
+                    </div>
+                    <p class="text-gray-300">Empowering students through free, personalized tutoring</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://www.instagram.com/brightmindstutoring.site/" class="text-gray-300 hover:text-white transition duration-300 transform hover:scale-110" target="_blank">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@brightmindstutoring.site" class="text-gray-300 hover:text-white transition duration-300 transform hover:scale-110" target="_blank">
+                        <i class="fab fa-tiktok text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                    <div>
+                        <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="index.html" class="text-gray-300 hover:text-white transition">Home</a></li>
+                            <li><a href="volunteers.html" class="text-gray-300 hover:text-white transition">Volunteers</a></li>
+                            <li><a href="donation.html" class="text-gray-300 hover:text-white transition">Donate</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-4">Services</h4>
+                        <ul class="space-y-2">
+                            <li>Free Math Tutoring</li>
+                            <li>Science Help</li>
+                            <li>Study Skills</li>
+                            <li>Homework Assistance</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-4">Contact</h4>
+                        <ul class="space-y-2">
+                            <li>Info@brightmindstutoring.site</li>
+                            <li>(303) 409-8948</li>
+                            <li>Virtual Sessions</li>
+                            <li>Available Weekdays & Weekends</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-700 mt-8 pt-6 text-center">
+                    <p>© 2025 Bright Minds Tutoring - Made with ❤️ by <a href="https://salahdiinadan.me" target="_blank" class="text-blue-400 hover:underline">Salahdiin Ahmed Adan</a></p>
+                    <p class="mt-2 text-sm text-gray-400">All sessions are 100% free for students in need</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Donation amount selection
+        const donationButtons = document.querySelectorAll('.donation-amount');
+        const customAmountInput = document.getElementById('custom-amount');
+
+        donationButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                donationButtons.forEach(btn => {
+                    btn.classList.remove('bg-blue-500', 'text-white');
+                    btn.classList.add('bg-blue-50', 'text-blue-700');
+                });
+                
+                // Add active class to clicked button
+                button.classList.remove('bg-blue-50', 'text-blue-700');
+                button.classList.add('bg-blue-500', 'text-white');
+                
+                // Clear custom amount
+                customAmountInput.value = '';
+            });
+        });
+
+        customAmountInput.addEventListener('input', () => {
+            // Remove active class from all buttons when custom amount is entered
+            donationButtons.forEach(btn => {
+                btn.classList.remove('bg-blue-500', 'text-white');
+                btn.classList.add('bg-blue-50', 'text-blue-700');
+            });
+        });
+
+        // Form submission
+        document.getElementById('donation-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const amount = customAmountInput.value || document.querySelector('.donation-amount.bg-blue-500')?.dataset.amount || '25';
+            const frequency = document.querySelector('input[name="frequency"]:checked').value;
+            const name = document.getElementById('donor-name').value;
+            const email = document.getElementById('donor-email').value;
+            
+            // Construct PayPal link
+            const paypalLink = `https://www.paypal.com/donate/?hosted_button_id=@BrightMindTutoring&amount=${amount}&currency_code=USD&item_name=Bright+Minds+Tutoring+Donation&custom=${frequency}`;
+            
+            // Open PayPal in new tab
+            window.open(paypalLink, '_blank');
+            
+            // Show thank you message
+            alert(`Thank you, ${name}! You will be redirected to PayPal to complete your ${frequency === 'one-time' ? 'one-time' : frequency} donation of $${amount}. We appreciate your support!`);
+        });
+    </script>
+</body>
+</html>
