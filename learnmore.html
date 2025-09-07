@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Bright Minds Tutoring</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-image: url('https://i.imgur.com/7eyXdWR.png');
+            background-size: 50px;
+            background-position: center;
+            background-repeat: repeat;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #4AA8D8 0%, #FDE74C 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #4AA8D8, #FDE74C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .quote-mark {
+            font-size: 4rem;
+            color: #4AA8D8;
+            opacity: 0.3;
+            position: absolute;
+            top: -10px;
+            left: -10px;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 50px;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4AA8D8, #FDE74C);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        .timeline-content {
+            position: relative;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .timeline-content:before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -10px;
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 10px solid white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center">
+                <img src="https://i.imgur.com/7eyXdWR.png" alt="Bright Minds Tutoring" class="h-10 w-auto mr-2">
+                <h1 class="text-2xl font-bold text-blue-500">Bright Minds</h1>
+            </a>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-8">
+                    <li><a href="index.html" class="text-gray-700 hover:text-blue-500 font-medium transition">Home</a></li>
+                    <li><a href="volunteers.html" class="text-gray-700 hover:text-blue-500 font-medium transition">Volunteers</a></li>
+                    <li><a href="learnmore.html" class="text-blue-500 font-medium">About Us</a></li>
+                    <li><a href="donation.html" class="text-gray-700 hover:text-blue-500 font-medium transition">Donate</a></li>
+                </ul>
+            </nav>
+            <button class="md:hidden text-gray-700" id="mobile-menu-button">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-white/95 backdrop-blur-md w-full py-4 px-4 shadow-lg" id="mobile-menu">
+            <ul class="space-y-4">
+                <li><a href="index.html" class="block text-gray-700 hover:text-blue-500 font-medium py-2 border-b border-gray-100">Home</a></li>
+                <li><a href="volunteers.html" class="block text-gray-700 hover:text-blue-500 font-medium py-2 border-b border-gray-100">Volunteers</a></li>
+                <li><a href="learnmore.html" class="block text-blue-500 font-medium py-2 border-b border-gray-100">About Us</a></li>
+                <li><a href="donation.html" class="block text-gray-700 hover:text-blue-500 font-medium py-2 border-b border-gray-100">Donate</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16 md:py-24">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-6xl font-bold mb-6" data-aos="fade-up">Our Story & Mission</h2>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90" data-aos="fade-up" data-aos-delay="100">Empowering students through free, personalized education</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4 relative inline-block">
+                        Who We Are
+                        <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-500 to-yellow-400"></span>
+                    </h2>
+                    <p class="text-xl text-gray-600">A passionate team dedicated to educational equity</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                    <div data-aos="fade-right">
+                        <img src="https://static.photos/education/1024x576/1" alt="Students learning" class="rounded-xl shadow-xl w-full">
+                    </div>
+                    <div data-aos="fade-left">
+                        <h3 class="text-3xl font-bold text-gray-800 mb-4">Our Founding</h3>
+                        <p class="text-gray-600 mb-4">Bright Minds Tutoring was founded in 2023 by Salahdiin Ahmed Adan, a student who recognized the growing educational disparities in our community. What began as a small initiative to help a few classmates quickly grew into a full-fledged tutoring organization serving students across Colorado.</p>
+                        <p class="text-gray-600 mb-6">Our mission is simple: to provide high-quality, personalized tutoring completely free of charge to students who need it most. We believe that every student deserves access to educational support, regardless of their family's financial situation.</p>
+                        <div class="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500">
+                            <p class="text-gray-700 italic">"Education is the great equalizer. By providing free tutoring, we're helping level the playing field for students who might otherwise fall behind."</p>
+                            <p class="text-blue-600 font-semibold mt-2">— Salahdiin Ahmed Adan, Founder</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                    <div class="md:order-2" data-aos="fade-left">
+                        <img src="https://static.photos/people/1024x576/5" alt="Tutoring session" class="rounded-xl shadow-xl w-full">
+                    </div>
+                    <div class="md:order-1" data-aos="fade-right">
+                        <h3 class="text-3xl font-bold text-gray-800 mb-4">Why We Do It</h3>
+                        <p class="text-gray-600 mb-4">The COVID-19 pandemic exacerbated existing educational inequalities, with many students falling significantly behind in core subjects like math and science. We saw firsthand how these learning gaps affected our peers' confidence and future opportunities.</p>
+                        <p class="text-gray-600 mb-6">Our volunteer tutors are passionate about reversing this trend. We focus not just on academic improvement, but also on rebuilding students' confidence in their abilities. Many of our tutors come from similar backgrounds as the students we serve, allowing us to create meaningful connections and serve as relatable role models.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="bg-yellow-100 px-4 py-2 rounded-full flex items-center">
+                                <i class="fas fa-heart text-yellow-500 mr-2"></i>
+                                <span>100% Free</span>
+                            </div>
+                            <div class="bg-blue-100 px-4 py-2 rounded-full flex items-center">
+                                <i class="fas fa-users text-blue-500 mr-2"></i>
+                                <span>Peer Tutors</span>
+                            </div>
+                            <div class="bg-green-100 px-4 py-2 rounded-full flex items-center">
+                                <i class="fas fa-graduation-cap text-green-500 mr-2"></i>
+                                <span>Personalized Learning</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Milestones Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 relative inline-block">
+                    Our Journey
+                    <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-500 to-yellow-400"></span>
+                </h2>
+                <p class="text-xl text-gray-600">Key moments in our organization's growth</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot">1</div>
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Founding Bright Minds</h3>
+                        <p class="text-gray-600 mb-2">January 2023</p>
+                        <p>Salahdiin Ahmed Adan officially establishes Bright Minds Tutoring after seeing the need for free academic support among his peers. The organization begins with just 3 volunteer tutors helping a handful of students.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot">2</div>
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Meeting Mayor Coffman</h3>
+                        <p class="text-gray-600 mb-2">June 2023</p>
+                        <p>Bright Minds is invited to meet with Aurora Mayor Mike Coffman to discuss educational initiatives in the community. The meeting leads to increased visibility and support for our programs.</p>
+                        <div class="mt-4 flex overflow-x-auto gap-4 pb-2">
+                            <img src="https://static.photos/office/320x240/1" alt="Meeting with Mayor" class="w-48 h-32 object-cover rounded-lg">
+                            <img src="https://static.photos/office/320x240/2" alt="Discussion" class="w-48 h-32 object-cover rounded-lg">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot">3</div>
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Westword Feature</h3>
+                        <p class="text-gray-600 mb-2">August 2023</p>
+                        <p>Bright Minds is featured in Westword magazine's education issue, highlighting our innovative approach to peer tutoring and community-based learning support.</p>
+                        <a href="#" class="inline-flex items-center text-blue-500 mt-2">
+                            <span>Read the article</span>
+                            <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot">4</div>
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Denver7 News Interview</h3>
+                        <p class="text-gray-600 mb-2">October 2023</p>
+                        <p>Our founder is interviewed on Denver7 News about the impact of free tutoring services on student achievement. The segment leads to a surge in volunteer applications and student sign-ups.</p>
+                        <div class="mt-4 aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg overflow-hidden">
+                            <div class="flex items-center justify-center h-full text-gray-500">
+                                <i class="fas fa-play-circle text-4xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 5 -->
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot">5</div>
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">100+ Students Served</h3>
+                        <p class="text-gray-600 mb-2">December 2023</p>
+                        <p>Bright Minds reaches the milestone of serving over 100 students across the Denver metro area. Our team grows to 15 dedicated volunteer tutors offering support in multiple subjects.</p>
+                        <div class="mt-4 flex items-center">
+                            <div class="flex -space-x-2">
+                                <img src="https://static.photos/people/40x40/1" class="w-10 h-10 rounded-full border-2 border-white" alt="Student">
+                                <img src="https://static.photos/people/40x40/2" class="w-10 h-10 rounded-full border-2 border-white" alt="Student">
+                                <img src="https://static.photos/people/40x40/3" class="w-10 h-10 rounded-full border-2 border-white" alt="Student">
+                                <div class="w-10 h-10 rounded-full bg-blue-500 text-white border-2 border-white flex items-center justify-center font-bold">97+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-4 relative inline-block">
+                    Our Impact
+                    <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-yellow-400 to-white"></span>
+                </h2>
+                <p class="text-xl opacity-90 max-w-2xl mx-auto">Transforming lives through education, one student at a time</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-5xl font-bold mb-4">100+</div>
+                    <h3 class="text-xl font-semibold mb-2">Students Helped</h3>
+                    <p class="opacity-90">From elementary to high school across Colorado</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-5xl font-bold mb-4">300+</div>
+                    <h3 class="text-xl font-semibold mb-2">Tutoring Hours</h3>
+                    <p class="opacity-90">Of personalized instruction provided completely free</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-5xl font-bold mb-4">15</div>
+                    <h3 class="text-xl font-semibold mb-2">Dedicated Tutors</h3>
+                    <p class="opacity-90">Passionate volunteers committed to educational equity</p>
+                </div>
+            </div>
+
+            <div class="mt-16 bg-white/20 backdrop-blur-sm max-w-4xl mx-auto p-8 rounded-xl" data-aos="fade-up">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/3 mb-6 md:mb-0">
+                        <img src="https://static.photos/people/200x200/10" alt="Student testimonial" class="w-32 h-32 rounded-full mx-auto border-4 border-white">
+                    </div>
+                    <div class="md:w-2/3 md:pl-8 text-center md:text-left">
+                        <div class="relative">
+                            <i class="fas fa-quote-left text-3xl opacity-20 absolute -top-4 -left-2"></i>
+                            <p class="text-lg italic mb-4 relative">"Before Bright Minds, I was struggling in algebra and thought I'd never understand it. My tutor broke everything down in ways that made sense to me. Now I'm helping other students with math too!"</p>
+                        </div>
+                        <p class="font-semibold">— Maria G., 10th Grade Student</p>
+                        <p class="text-sm opacity-80">Grade improved from D to B+ in one semester</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-3xl mx-auto bg-gradient-to-r from-blue-500 to-yellow-400 p-1 rounded-2xl" data-aos="fade-up">
+                <div class="bg-white rounded-xl p-8 md:p-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Join Our Movement</h2>
+                    <p class="text-xl text-gray-600 mb-6">Whether you want to volunteer, donate, or enroll a student, you're helping make education accessible to all.</p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="donation.html" class="bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold py-3 px-8 rounded-full hover:opacity-90 transition duration-300 transform hover:scale-105 shadow-lg">
+                            <i class="fas fa-donate mr-2"></i> Support Us
+                        </a>
+                        <a href="volunteers.html" class="bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-800 font-bold py-3 px-8 rounded-full hover:opacity-90 transition duration-300 transform hover:scale-105 shadow-lg">
+                            <i class="fas fa-hands-helping mr-2"></i> Volunteer
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start mb-4">
+                        <img src="https://i.imgur.com/7eyXdWR.png" alt="Bright Minds Tutoring" class="h-10 w-auto mr-3">
+                        <h3 class="text-2xl font-bold">Bright Minds</h3>
+                    </div>
+                    <p class="text-gray-300">Empowering students through free, personalized tutoring</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://www.instagram.com/brightmindstutoring.site/" class="text-gray-300 hover:text-white transition duration-300 transform hover:scale-110" target="_blank">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@brightmindstutoring.site" class="text-gray-300 hover:text-white transition duration-300 transform hover:scale-110" target="_blank">
+                        <i class="fab fa-tiktok text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                    <div>
+                        <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="index.html" class="text-gray-300 hover:text-white transition">Home</a></li>
+                            <li><a href="volunteers.html" class="text-gray-300 hover:text-white transition">Volunteers</a></li>
+                            <li><a href="learnmore.html" class="text-gray-300 hover:text-white transition">About Us</a></li>
+                            <li><a href="donation.html" class="text-gray-300 hover:text-white transition">Donate</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-4">Services</h4>
+                        <ul class="space-y-2">
+                            <li>Free Math Tutoring</li>
+                            <li>Science Help</li>
+                            <li>Study Skills</li>
+                            <li>Homework Assistance</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-4">Contact</h4>
+                        <ul class="space-y-2">
+                            <li>Info@brightmindstutoring.site</li>
+                            <li>(303) 409-8948</li>
+                            <li>Virtual Sessions</li>
+                            <li>Available Weekdays & Weekends</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-700 mt-8 pt-6 text-center">
+                    <p>© 2025 Bright Minds Tutoring - Made with  ❤️ by <a href="https://salahdiinadan.me" target="_blank" class="text-blue-400 hover:underline">Salahdiin Ahmed Adan</a></p>
+                    <p class="mt-2 text-sm text-gray-400">All sessions are 100% free for students in need</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
